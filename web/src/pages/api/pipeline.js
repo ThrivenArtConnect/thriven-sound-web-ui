@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'uploadId is required' });
     }
 
-    const upload = getUpload(uploadId);
+    const upload = await getUpload(uploadId);
     if (!upload) {
       return res.status(404).json({ error: 'Upload not found' });
     }
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
     if (step === 'scan' || !step) {
       // Step 1: Scan
-      updateUploadStatus(uploadId, 'scanning');
+      await updateUploadStatus(uploadId, 'scanning');
       
       const stemsRawDir = path.join(packDir, 'stems_raw');
       await scan(stemsRawDir, {
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
       // Read raw index
       const rawIndex = JSON.parse(await fs.readFile(rawIndexPath, 'utf-8'));
 
-      updateUploadStatus(uploadId, 'scanned');
+      await updateUploadStatus(uploadId, 'scanned');
 
       return res.status(200).json({
         success: true,
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
 
     if (step === 'analyze') {
       // Step 2: Analyze
-      updateUploadStatus(uploadId, 'analyzing');
+      await updateUploadStatus(uploadId, 'analyzing');
 
       await analyze(rawIndexPath, {
         output: analysisIndexPath,
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
       const analysisIndex = JSON.parse(await fs.readFile(analysisIndexPath, 'utf-8'));
 
       // Save to database
-      saveAnalysisResult({
+      await saveAnalysisResult({
         id: uuidv4(),
         upload_id: uploadId,
         raw_index_json: JSON.stringify(rawIndex),
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
         duplicates_json: JSON.stringify(rawIndex.duplicates || []),
       });
 
-      updateUploadStatus(uploadId, 'analyzed');
+      await updateUploadStatus(uploadId, 'analyzed');
 
       return res.status(200).json({
         success: true,

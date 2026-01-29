@@ -1,6 +1,7 @@
 import formidable from 'formidable';
 import fs from 'fs/promises';
 import path from 'path';
+import os from 'os';
 import { v4 as uuidv4 } from 'uuid';
 import { createUpload } from '@/lib/db';
 
@@ -10,7 +11,8 @@ export const config = {
   },
 };
 
-const UPLOAD_DIR = path.join(process.cwd(), 'data', 'uploads');
+// Use temp directory for uploads (works in containers)
+const UPLOAD_DIR = process.env.UPLOAD_DIR || path.join(os.tmpdir(), 'thriven-uploads');
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -58,8 +60,8 @@ export default async function handler(req, res) {
     // Get folder name from form data
     const folderName = Array.isArray(fields.folderName) ? fields.folderName[0] : fields.folderName || 'Uploaded Pack';
 
-    // Save to database
-    const upload = createUpload({
+    // Save to database (MongoDB)
+    await createUpload({
       id: uploadId,
       folder_path: path.join(UPLOAD_DIR, uploadId),
       folder_name: folderName,

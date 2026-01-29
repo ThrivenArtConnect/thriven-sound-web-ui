@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'uploadId is required' });
     }
 
-    const upload = getUpload(uploadId);
+    const upload = await getUpload(uploadId);
     if (!upload) {
       return res.status(404).json({ error: 'Upload not found' });
     }
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'uploadId is required' });
     }
 
-    const upload = getUpload(uploadId);
+    const upload = await getUpload(uploadId);
     if (!upload) {
       return res.status(404).json({ error: 'Upload not found' });
     }
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
       const yaml = await fs.readFile(stemmapPath, 'utf-8');
 
       // Save to database
-      saveStemmap({
+      await saveStemmap({
         id: uuidv4(),
         upload_id: uploadId,
         stemmap_yaml: yaml,
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
       await fs.writeFile(stemmapPath, stemmapData, 'utf-8');
 
       // Update database
-      saveStemmap({
+      await saveStemmap({
         id: uuidv4(),
         upload_id: uploadId,
         stemmap_yaml: stemmapData,
@@ -107,13 +107,13 @@ export default async function handler(req, res) {
 
     if (action === 'apply') {
       // Apply stemmap to create stems_8/
-      updateUploadStatus(uploadId, 'applying-stemmap');
+      await updateUploadStatus(uploadId, 'applying-stemmap');
 
       await applyStemmap(packDir, {
         verbose: true,
       });
 
-      updateUploadStatus(uploadId, 'stemmap-applied');
+      await updateUploadStatus(uploadId, 'stemmap-applied');
 
       return res.status(200).json({
         success: true,
@@ -124,7 +124,7 @@ export default async function handler(req, res) {
 
     if (action === 'prep-br864') {
       // Prepare for BR-864
-      updateUploadStatus(uploadId, 'preparing-br864');
+      await updateUploadStatus(uploadId, 'preparing-br864');
 
       await prepBR864(packDir, {
         padToLongest: padToLongest === true,
@@ -138,7 +138,7 @@ export default async function handler(req, res) {
         manifest = await fs.readFile(manifestPath, 'utf-8');
       } catch {}
 
-      updateUploadStatus(uploadId, 'br864-ready');
+      await updateUploadStatus(uploadId, 'br864-ready');
 
       return res.status(200).json({
         success: true,
