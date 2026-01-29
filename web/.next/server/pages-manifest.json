@@ -2,5 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/": "pages/index.js",
+  "/api/uploads": "pages/api/uploads.js",
+  "/api/upload": "pages/api/upload.js",
+  "/api/pipeline": "pages/api/pipeline.js",
+  "/api/stemmap": "pages/api/stemmap.js",
+  "/api/export": "pages/api/export.js"
 }
