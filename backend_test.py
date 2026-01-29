@@ -220,10 +220,10 @@ class ThrivenAPITester:
     def test_invalid_endpoints(self):
         """Test invalid endpoints return proper errors"""
         tests = [
-            ("Invalid Method on Upload", "DELETE", "api/upload", 405),
-            ("Invalid Method on Pipeline", "GET", "api/pipeline", 405),
+            ("Invalid Method on Upload", "DELETE", "api/upload", 405, None),
+            ("Invalid Method on Pipeline", "GET", "api/pipeline", 405, None),
             ("Missing Upload ID", "POST", "api/pipeline", 400, {"step": "scan"}),
-            ("Invalid Upload ID", "GET", "api/uploads?uploadId=invalid-id", 404),
+            ("Invalid Upload ID", "GET", "api/uploads?uploadId=invalid-id", 404, None),
         ]
         
         all_passed = True
