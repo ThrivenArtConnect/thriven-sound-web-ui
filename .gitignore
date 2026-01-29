@@ -4,3 +4,7 @@ exports/
 br864_ready/
 .DS_Store
 .env
+-e 
+# Environment files
+*.env
+*.env.*
