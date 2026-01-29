@@ -1,0 +1,162 @@
+{
+  "identity": {
+    "name": "E1",
+    "role": "Creative Designer (Anti-AI)",
+    "principles": [
+      "Fusion over Imitation",
+      "Emotion First",
+      "Content is King",
+      "Zoom In",
+      "Negative Space",
+      "Contrast"
+    ]
+  },
+  "technical_stack": {
+    "frontend": "Next.js (React)",
+    "backend": "Node.js (Express/Fastify) wrapping existing CLI",
+    "styling": "Tailwind CSS",
+    "ui_library": "shadcn/ui (Customized)",
+    "icons": "Lucide React",
+    "visualization": "wavesurfer.js"
+  },
+  "theme": {
+    "mode": "dark",
+    "aesthetic": "Cyberpunk / Techno / Industrial",
+    "emotional_tone": "High-Tech, Precision, Underground, Hacker",
+    "surface_strategy": "Retro-Futurism (Grid Borders, Scanlines)"
+  },
+  "colors": {
+    "palette": {
+      "background": {
+        "base": "#050505",
+        "surface": "#0A0A0A",
+        "overlay": "#121212"
+      },
+      "primary": {
+        "DEFAULT": "#00F0FF",
+        "glow": "rgba(0, 240, 255, 0.5)",
+        "dim": "#008F99"
+      },
+      "secondary": {
+        "DEFAULT": "#BC13FE",
+        "glow": "rgba(188, 19, 254, 0.5)",
+        "dim": "#7A0C99"
+      },
+      "functional": {
+        "success": "#00FF41",
+        "warning": "#FAFF00",
+        "error": "#FF003C",
+        "info": "#00F0FF"
+      },
+      "text": {
+        "primary": "#FFFFFF",
+        "secondary": "#A1A1AA",
+        "muted": "#52525B",
+        "accent": "#00F0FF"
+      }
+    },
+    "gradients": {
+      "cyber_main": "linear-gradient(135deg, #00F0FF 0%, #BC13FE 100%)",
+      "scanline": "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Orbitron, sans-serif",
+      "body": "Rajdhani, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "usage": {
+      "h1": "font-heading font-black text-5xl tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]",
+      "h2": "font-heading font-bold text-3xl tracking-tight text-white",
+      "h3": "font-heading font-bold text-xl text-primary",
+      "body": "font-body text-base text-gray-300 leading-relaxed",
+      "code": "font-mono text-sm text-primary bg-primary/10 p-1 rounded border border-primary/20"
+    }
+  },
+  "layout": {
+    "grid_system": "Bento Grid (Mode B: High Density)",
+    "container_padding": "p-6 md:p-8 lg:p-12",
+    "gap": "gap-4 md:gap-6",
+    "border_radius": "rounded-none",
+    "border_style": "border border-white/10 hover:border-primary/50 transition-colors duration-300"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary/10 hover:bg-primary/20 text-primary border border-primary hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300 uppercase font-bold tracking-widest rounded-none clip-path-polygon-[0_0,100%_0,100%_70%,90%_100%,0_100%]",
+      "secondary": "bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary hover:shadow-[0_0_15px_rgba(188,19,254,0.4)] transition-all duration-300 uppercase font-bold tracking-widest rounded-none"
+    },
+    "cards": {
+      "base": "bg-black/40 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group",
+      "effect": "before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500"
+    },
+    "inputs": {
+      "base": "bg-black/50 border border-white/20 focus:border-primary text-white placeholder:text-white/30 rounded-none focus:ring-1 focus:ring-primary/50 transition-all font-mono"
+    },
+    "waveform": {
+      "container": "w-full h-32 bg-black/50 border border-primary/20 relative overflow-hidden",
+      "colors": {
+        "waveColor": ["#00F0FF", "#BC13FE"],
+        "progressColor": ["#008F99", "#7A0C99"],
+        "cursorColor": "#FFFFFF"
+      }
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "background_texture",
+        "url": "https://images.unsplash.com/photo-1588007374946-c79543903e8a?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Blue and white light streaks for subtle background texture"
+      },
+      {
+        "category": "abstract_accent",
+        "url": "https://images.unsplash.com/photo-1588007375246-3ee823ef4851?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Blue and purple abstract painting for hero sections or card backgrounds"
+      }
+    ],
+    "logo": {
+      "type": "text",
+      "content": "THRIVEN",
+      "style": "font-heading font-black text-4xl tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. INITIALIZATION: The current directory contains a CLI tool. You must create a new Next.js app in a subdirectory (e.g., /app/web) or restructure the root to support both. Recommended: Create '/app/web' for the frontend.",
+    "2. DEPENDENCIES: Install 'wavesurfer.js', 'lucide-react', 'clsx', 'tailwind-merge', 'framer-motion'.",
+    "3. FONTS: Configure 'next/font' to use Orbitron, Rajdhani, and JetBrains Mono.",
+    "4. GLOBAL CSS: Apply the 'background.base' color to the body. Add a global 'scanline' overlay using `pointer-events-none fixed inset-0 z-50` with the scanline gradient.",
+    "5. COMPONENTS: Build the 'UploadZone' using 'react-dropzone'. Style it as a 'Data Drop' terminal.",
+    "6. DASHBOARD: Implement the 'Bento Grid' layout. Use 'wavesurfer.js' for the audio preview. Ensure the waveform colors match the design guidelines.",
+    "7. BACKEND INTEGRATION: The existing CLI tools are in '/app/src'. You need to create API routes in Next.js (or a separate Express server) that import and call these functions. DO NOT rewrite the logic if you can import it.",
+    "8. DATA-TESTID: Add 'data-testid' to all interactive elements (buttons, inputs, dropzones)."
+  ],
+  "universal_guidelines": {
+    "design_philosophy": [
+      "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+      "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+      "Create depth through layered design elements with z-index hierarchy",
+      "Use glass-morphism effects with backdrop filters (12-24px blur)",
+      "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+      "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+      "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+      "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+      "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+      "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+      "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary."
+    ],
+    "component_reuse": [
+      "Prioritize using pre-existing components from src/components/ui when applicable",
+      "Create new components that match the style and conventions of existing components when needed",
+      "Examine existing components to understand the project's component patterns before creating new ones"
+    ],
+    "export_conventions": [
+      "Components MUST use named exports (export const ComponentName = ...)",
+      "Pages MUST use default exports (export default function PageName() {...})"
+    ],
+    "toasts": [
+      "Use 'sonner' for toasts",
+      "Sonner component are located in /app/src/components/ui/sonner.tsx"
+    ]
+  }
+}
