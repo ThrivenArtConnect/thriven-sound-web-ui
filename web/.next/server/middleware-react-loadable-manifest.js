@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"../components/WaveformPlayer.js -> wavesurfer.js\":{\"id\":\"../components/WaveformPlayer.js -> wavesurfer.js\",\"files\":[\"static/chunks/node_modules_wavesurfer_js_dist_wavesurfer_esm_js.js\"]}}"
