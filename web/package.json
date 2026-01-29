@@ -12,13 +12,16 @@
     "archiver": "^6.0.1",
     "better-sqlite3": "^9.2.2",
     "clsx": "^2.0.0",
+    "formidable": "^3.5.4",
     "framer-motion": "^10.16.4",
+    "js-yaml": "^4.1.1",
     "lucide-react": "^0.294.0",
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "tailwind-merge": "^2.0.0",
+    "uuid": "^13.0.0",
     "wavesurfer.js": "^7.4.6"
   },
   "devDependencies": {
