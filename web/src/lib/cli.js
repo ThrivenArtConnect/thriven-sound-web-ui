@@ -16,7 +16,7 @@ export function runCommand(command, args = [], options = {}) {
   return new Promise((resolve, reject) => {
     const nodeArgs = [CLI_PATH, command, ...args];
     const proc = spawn('node', nodeArgs, {
-      cwd: options.cwd || process.cwd(),
+      cwd: options.cwd || '/app',
       env: { ...process.env, ...options.env },
     });
 
