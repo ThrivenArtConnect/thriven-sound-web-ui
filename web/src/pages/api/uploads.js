@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     if (uploadId) {
       // Get specific upload with details
-      const upload = getUpload(uploadId);
+      const upload = await getUpload(uploadId);
       if (!upload) {
         return res.status(404).json({ error: 'Upload not found' });
       }
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
     }
 
     // Get all uploads
-    const uploads = getAllUploads();
+    const uploads = await getAllUploads();
     return res.status(200).json({
       success: true,
       uploads,

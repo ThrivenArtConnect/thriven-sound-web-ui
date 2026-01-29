@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'uploadId is required' });
     }
 
-    const upload = getUpload(uploadId);
+    const upload = await getUpload(uploadId);
     if (!upload) {
       return res.status(404).json({ error: 'Upload not found' });
     }
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       } catch {}
 
       // Save to database
-      saveExport({
+      await saveExport({
         id: uuidv4(),
         upload_id: uploadId,
         export_type: 'top-n',
@@ -89,7 +89,8 @@ export default async function handler(req, res) {
 
       // Create ZIP
       const zipPath = path.join(packDir, zipName);
-      const output = (await import('fs')).createWriteStream(zipPath);
+      const fsSync = await import('fs');
+      const output = fsSync.createWriteStream(zipPath);
       const archive = archiver('zip', { zlib: { level: 9 } });
 
       archive.pipe(output);
