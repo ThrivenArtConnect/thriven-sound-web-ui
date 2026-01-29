@@ -1,7 +1,13 @@
 import { spawn } from 'child_process';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const CLI_PATH = path.join(process.cwd(), '..', 'bin', 'thriven');
+// Get the directory of the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// CLI path relative to the web directory
+const CLI_PATH = path.join(__dirname, '..', '..', '..', 'bin', 'thriven');
 
 /**
  * Execute a CLI command and return the result
