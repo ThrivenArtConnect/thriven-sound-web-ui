@@ -1,38 +1,32 @@
 {
-  "name": "thriven-sound-web-ui",
-  "version": "0.2.0",
-  "description": "Web UI and dashboard for the Thriven Sound Analyzer CLI (scan, analyze, rank and export Suno stems/loops, BR-864 prep).",
+  "name": "thriven-web",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "bin": {
-    "thriven": "./bin/thriven"
-  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "cli": "node bin/thriven",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "start": "next start -p 3000"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
-    "commander": "^12.1.0",
-    "glob": "^10.4.5",
-    "js-yaml": "^4.1.0",
-    "music-metadata": "^10.5.0",
-    "p-queue": "^8.0.1",
-    "uuid": "^10.0.0",
-    "next": "14.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "archiver": "^6.0.1",
+    "clsx": "^2.0.0",
+    "formidable": "^3.5.4",
+    "framer-motion": "^10.16.4",
+    "js-yaml": "^4.1.1",
+    "lucide-react": "^0.294.0",
+    "mongodb": "^7.0.0",
+    "next": "14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "tailwind-merge": "^2.0.0",
+    "uuid": "^13.0.0",
+    "wavesurfer.js": "^7.4.6"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.1.0"
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
   }
 }
