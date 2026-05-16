@@ -3,127 +3,239 @@
     <info>
         <name>Gemini Slate 4 / Gemini Serato Slate 4</name>
         <author>Cursor AI</author>
-        <description>Four deck MIDI mapping for Gemini Slate 4 on Mixxx 2.4+ with script-driven jog wheels, shift layers, pad modes, and deck 3/4 switching.</description>
+        <description>Four deck MIDI mapping for Gemini Slate 4 (SLATE4) on Mixxx 2.4+. Generated from MIDI-OX log on MIDI channel 1 for Deck 1 and mirrored to channels 2/3/4 for Decks 2/3/4. Mixer CCs share global MIDI channel 4 (status 0xB3) with per-deck CC numbers.</description>
     </info>
     <controller id="SLATE4">
         <scriptfiles>
             <file filename="Gemini-Serato-Slate-script.js" functionprefix="GeminiSlate"/>
         </scriptfiles>
         <controls>
-            <!-- Deck 1: MIDI-OX status 0x91 / 0xB1 -->
-            <control><group>[Channel1]</group><key>GeminiSlate.shift</key><status>0x91</status><midino>0x37</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.wheelTouch</key><status>0x91</status><midino>0x41</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.playButton</key><status>0x91</status><midino>0x3B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.cueButton</key><status>0x91</status><midino>0x3D</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.syncButton</key><status>0x91</status><midino>0x3F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.loadButton</key><status>0x91</status><midino>0x40</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pflButton</key><status>0x91</status><midino>0x05</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.reverseButton</key><status>0x91</status><midino>0x54</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.padMode</key><status>0x91</status><midino>0x55</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.padMode</key><status>0x91</status><midino>0x56</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.padMode</key><status>0x91</status><midino>0x57</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x06</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x09</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x0C</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x0F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x12</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x15</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x18</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x1B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.wheelTurn</key><status>0xB1</status><midino>0x04</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x03</midino><options><Script-Binding/></options></control>
 
-            <!-- Deck 2: MIDI-OX status 0x94 / 0xB4 -->
-            <control><group>[Channel2]</group><key>GeminiSlate.shift</key><status>0x94</status><midino>0x37</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.wheelTouch</key><status>0x94</status><midino>0x41</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.playButton</key><status>0x94</status><midino>0x3B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.cueButton</key><status>0x94</status><midino>0x3D</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.syncButton</key><status>0x94</status><midino>0x3F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.loadButton</key><status>0x94</status><midino>0x40</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pflButton</key><status>0x94</status><midino>0x05</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.reverseButton</key><status>0x94</status><midino>0x54</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.padMode</key><status>0x94</status><midino>0x55</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.padMode</key><status>0x94</status><midino>0x56</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.padMode</key><status>0x94</status><midino>0x57</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x08</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x0B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x0E</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x11</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x14</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x17</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x1A</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x1D</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.wheelTurn</key><status>0xB4</status><midino>0x04</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB4</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB4</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <!-- ================================================== -->
+            <!-- DECK 1  -  status 0x90 / 0xB0  (MIDI channel 1)    -->
+            <!-- ================================================== -->
 
-            <!-- Deck 3: MIDI-OX status 0x93 / 0xB3 -->
-            <control><group>[Channel3]</group><key>GeminiSlate.shift</key><status>0x93</status><midino>0x37</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.wheelTouch</key><status>0x93</status><midino>0x41</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.playButton</key><status>0x93</status><midino>0x3B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.cueButton</key><status>0x93</status><midino>0x3D</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.syncButton</key><status>0x93</status><midino>0x3F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.loadButton</key><status>0x93</status><midino>0x40</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pflButton</key><status>0x93</status><midino>0x05</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.reverseButton</key><status>0x93</status><midino>0x54</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.padMode</key><status>0x93</status><midino>0x55</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.padMode</key><status>0x93</status><midino>0x56</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.padMode</key><status>0x93</status><midino>0x57</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x06</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x09</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x0C</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x0F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x12</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x15</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x18</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x1B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.wheelTurn</key><status>0xB3</status><midino>0x04</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB3</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB3</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <!-- Local Shift (per deck) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.shift</key><status>0x90</status><midino>0x37</midino><options><Script-Binding/></options></control>
 
-            <!-- Deck 4: MIDI-OX status 0x95 / 0xB5 -->
-            <control><group>[Channel4]</group><key>GeminiSlate.shift</key><status>0x95</status><midino>0x37</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.wheelTouch</key><status>0x95</status><midino>0x41</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.playButton</key><status>0x95</status><midino>0x3B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.cueButton</key><status>0x95</status><midino>0x3D</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.syncButton</key><status>0x95</status><midino>0x3F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.loadButton</key><status>0x95</status><midino>0x40</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pflButton</key><status>0x95</status><midino>0x05</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.reverseButton</key><status>0x95</status><midino>0x54</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.padMode</key><status>0x95</status><midino>0x55</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.padMode</key><status>0x95</status><midino>0x56</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.padMode</key><status>0x95</status><midino>0x57</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x06</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x09</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x0C</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x0F</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x12</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x15</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x18</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x1B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.wheelTurn</key><status>0xB5</status><midino>0x04</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.rate</key><status>0xB5</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.rate</key><status>0xB5</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <!-- Pads, Hot Cue mode (no shift) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x06</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x0F</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x12</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x15</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x18</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padHotcue</key><status>0x90</status><midino>0x1B</midino><options><Script-Binding/></options></control>
 
-            <!-- Mixer controls captured on MIDI channel 4 (0xB3). These control the active deck layer. -->
+            <!-- Pads, Sampler / shifted layer (when local Shift held) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x55</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x56</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x57</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x58</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x59</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x5A</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x5B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.padSampler</key><status>0x90</status><midino>0x5C</midino><options><Script-Binding/></options></control>
+
+            <!-- Top buttons (best-guess based on photo) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.keyLock</key><status>0x90</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx1</key><status>0x90</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx2</key><status>0x90</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx3</key><status>0x90</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.pflButton</key><status>0x90</status><midino>0x05</midino><options><Script-Binding/></options></control>
+
+            <!-- Loop in / out (notes seen with shift held in log) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.loopIn</key><status>0x90</status><midino>0x3C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.loopOut</key><status>0x90</status><midino>0x3E</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.loopExit</key><status>0x90</status><midino>0x3D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.loopHalve</key><status>0x90</status><midino>0x3F</midino><options><Script-Binding/></options></control>
+
+            <!-- Transport -->
+            <control><group>[Channel1]</group><key>GeminiSlate.cueButton</key><status>0x90</status><midino>0x39</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.playButton</key><status>0x90</status><midino>0x38</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.syncButton</key><status>0x90</status><midino>0x54</midino><options><Script-Binding/></options></control>
+
+            <!-- Jog wheel -->
+            <control><group>[Channel1]</group><key>GeminiSlate.wheelTouch</key><status>0x90</status><midino>0x41</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.wheelTurn</key><status>0xB0</status><midino>0x04</midino><options><Script-Binding/></options></control>
+
+            <!-- Pitch / Rate fader (deck channel) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB0</status><midino>0x07</midino><options><Script-Binding/></options></control>
+            <!-- Optional pregain on deck channel (CC 8) -->
+            <control><group>[Channel1]</group><key>GeminiSlate.pregain</key><status>0xB0</status><midino>0x08</midino><options><Script-Binding/></options></control>
+
+            <!-- ================================================== -->
+            <!-- DECK 2  -  status 0x91 / 0xB1  (MIDI channel 2)    -->
+            <!-- ================================================== -->
+
+            <control><group>[Channel2]</group><key>GeminiSlate.shift</key><status>0x91</status><midino>0x37</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x06</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x0F</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x12</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x15</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x18</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padHotcue</key><status>0x91</status><midino>0x1B</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x55</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x56</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x57</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x58</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x59</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x5A</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x5B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.padSampler</key><status>0x91</status><midino>0x5C</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.keyLock</key><status>0x91</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx1</key><status>0x91</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx2</key><status>0x91</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx3</key><status>0x91</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.pflButton</key><status>0x91</status><midino>0x05</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.loopIn</key><status>0x91</status><midino>0x3C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.loopOut</key><status>0x91</status><midino>0x3E</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.loopExit</key><status>0x91</status><midino>0x3D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.loopHalve</key><status>0x91</status><midino>0x3F</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.cueButton</key><status>0x91</status><midino>0x39</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.playButton</key><status>0x91</status><midino>0x38</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.syncButton</key><status>0x91</status><midino>0x54</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel2]</group><key>GeminiSlate.wheelTouch</key><status>0x91</status><midino>0x41</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.wheelTurn</key><status>0xB1</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x07</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.pregain</key><status>0xB1</status><midino>0x08</midino><options><Script-Binding/></options></control>
+
+            <!-- ================================================== -->
+            <!-- DECK 3  -  status 0x92 / 0xB2  (MIDI channel 3)    -->
+            <!-- ================================================== -->
+
+            <control><group>[Channel3]</group><key>GeminiSlate.shift</key><status>0x92</status><midino>0x37</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x06</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x0F</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x12</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x15</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x18</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padHotcue</key><status>0x92</status><midino>0x1B</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x55</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x56</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x57</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x58</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x59</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x5A</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x5B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.padSampler</key><status>0x92</status><midino>0x5C</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.keyLock</key><status>0x92</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx1</key><status>0x92</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx2</key><status>0x92</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx3</key><status>0x92</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.pflButton</key><status>0x92</status><midino>0x05</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.loopIn</key><status>0x92</status><midino>0x3C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.loopOut</key><status>0x92</status><midino>0x3E</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.loopExit</key><status>0x92</status><midino>0x3D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.loopHalve</key><status>0x92</status><midino>0x3F</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.cueButton</key><status>0x92</status><midino>0x39</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.playButton</key><status>0x92</status><midino>0x38</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.syncButton</key><status>0x92</status><midino>0x54</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel3]</group><key>GeminiSlate.wheelTouch</key><status>0x92</status><midino>0x41</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.wheelTurn</key><status>0xB2</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB2</status><midino>0x07</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.pregain</key><status>0xB2</status><midino>0x08</midino><options><Script-Binding/></options></control>
+
+            <!-- ================================================== -->
+            <!-- DECK 4  -  status 0x93 / 0xB3  (MIDI channel 4)    -->
+            <!-- NOTE: shares channel with global PAD MODE/mixer.    -->
+            <!-- We use DIFFERENT note numbers to avoid conflicts.  -->
+            <!-- ================================================== -->
+
+            <!-- Note 0x37 is free on channel 4 (only 0x0D is used globally) -->
+            <control><group>[Channel4]</group><key>GeminiSlate.shift</key><status>0x93</status><midino>0x37</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x06</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x0F</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x12</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x15</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x18</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padHotcue</key><status>0x93</status><midino>0x1B</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x55</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x56</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x57</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x58</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x59</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x5A</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x5B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.padSampler</key><status>0x93</status><midino>0x5C</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.keyLock</key><status>0x93</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.fx2</key><status>0x93</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.pflButton</key><status>0x93</status><midino>0x05</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.loopIn</key><status>0x93</status><midino>0x3C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.loopOut</key><status>0x93</status><midino>0x3E</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.loopExit</key><status>0x93</status><midino>0x3D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.loopHalve</key><status>0x93</status><midino>0x3F</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.cueButton</key><status>0x93</status><midino>0x39</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.playButton</key><status>0x93</status><midino>0x38</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.syncButton</key><status>0x93</status><midino>0x54</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.wheelTouch</key><status>0x93</status><midino>0x41</midino><options><Script-Binding/></options></control>
+
+            <!-- ================================================== -->
+            <!-- GLOBAL  -  status 0x93 / 0xB3  (MIDI channel 4)    -->
+            <!-- ================================================== -->
+
+            <!-- Central pad-mode / global shift -->
+            <control><group>[Master]</group><key>GeminiSlate.padModeButton</key><status>0x93</status><midino>0x0D</midino><options><Script-Binding/></options></control>
+
+            <!-- Library / browse buttons (best-guess) -->
+            <control><group>[Library]</group><key>GeminiSlate.browseBack</key><status>0x93</status><midino>0x07</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.loadButton</key><status>0x93</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.loadButton</key><status>0x93</status><midino>0x01</midino><options><Script-Binding/></options></control>
+
+            <!-- Mixer CCs on global channel 4 -->
             <control><group>[Channel1]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pregain</key><status>0xB3</status><midino>0x0B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x0B</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x0F</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x13</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x17</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x1B</midino><options><Script-Binding/></options></control>
+
             <control><group>[Channel2]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x08</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pregain</key><status>0xB3</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x0C</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x10</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x14</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x18</midino><options><Script-Binding/></options></control>
-            <control><group>[Master]</group><key>GeminiSlate.crossfader</key><status>0xB3</status><midino>0x19</midino><options><Script-Binding/></options></control>
 
-            <!-- Global controls captured on MIDI channel 4. -->
-            <control><group>[Master]</group><key>GeminiSlate.deckSwitch</key><status>0x93</status><midino>0x0D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x0D</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x11</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x15</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x19</midino><options><Script-Binding/></options></control>
+
+            <control><group>[Channel4]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x0A</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x0E</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x12</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x16</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x1A</midino><options><Script-Binding/></options></control>
+
+            <!-- Crossfader / Browse encoder (best-guess) -->
+            <control><group>[Master]</group><key>GeminiSlate.crossfader</key><status>0xB3</status><midino>0x1B</midino><options><Script-Binding/></options></control>
             <control><group>[Library]</group><key>GeminiSlate.browseTurn</key><status>0xB3</status><midino>0x1E</midino><options><Script-Binding/></options></control>
-            <control><group>[Library]</group><key>GeminiSlate.browsePush</key><status>0x93</status><midino>0x0A</midino><options><Script-Binding/></options></control>
+
         </controls>
     </controller>
 </MixxxControllerPreset>

@@ -1,4 +1,8 @@
 // Gemini Slate 4 / Gemini Serato Slate 4 controller script for Mixxx 2.4+.
+// Generated from MIDI-OX log of physical left deck on MIDI channel 1.
+// Decks 2/3/4 mirror the same notes/CCs on MIDI channels 2/3/4.
+// Mixer (volume, EQ, filter) sits on global MIDI channel 4 with per-deck CC numbers.
+
 // eslint-disable-next-line no-var
 var GeminiSlate = {};
 
@@ -8,60 +12,22 @@ GeminiSlate.beta = GeminiSlate.alpha / 32;
 GeminiSlate.rpm = 33 + (1 / 3);
 GeminiSlate.jogIntervalsPerRev = 128;
 
-GeminiSlate.padModeNames = ["hotcue", "loop", "sampler"];
-GeminiSlate.padModes = {
-    hotcue: 0,
-    loop: 1,
-    sampler: 2,
-};
+GeminiSlate.shiftByDeck = { 1: false, 2: false, 3: false, 4: false };
+GeminiSlate.padModeShift = false;
 
-GeminiSlate.activeDeckBySide = {
-    1: 1,
-    2: 2,
-};
-
-GeminiSlate.shiftByDeck = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-};
-
-GeminiSlate.padModeByDeck = {
-    1: GeminiSlate.padModes.hotcue,
-    2: GeminiSlate.padModes.hotcue,
-    3: GeminiSlate.padModes.hotcue,
-    4: GeminiSlate.padModes.hotcue,
-};
-
-GeminiSlate.loopSizes = [0.125, 0.25, 0.5, 1, 2, 4, 8, 16];
+GeminiSlate.padNotes = [0x06, 0x09, 0x0C, 0x0F, 0x12, 0x15, 0x18, 0x1B];
+GeminiSlate.padShiftedNotes = [0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C];
 
 GeminiSlate.groupFromDeck = function(deck) {
     return "[Channel" + deck + "]";
-};
-
-GeminiSlate.sideFromDeck = function(deck) {
-    return (deck === 2 || deck === 4) ? 2 : 1;
 };
 
 GeminiSlate.deckFromGroup = function(group) {
     return script.deckFromGroup(group);
 };
 
-GeminiSlate.targetDeckFromGroup = function(group) {
-    var deck = GeminiSlate.deckFromGroup(group);
-    if (deck === 1 || deck === 2) {
-        return GeminiSlate.activeDeckBySide[deck];
-    }
-    return deck;
-};
-
-GeminiSlate.targetGroupFromGroup = function(group) {
-    return GeminiSlate.groupFromDeck(GeminiSlate.targetDeckFromGroup(group));
-};
-
 GeminiSlate.isPressed = function(value, status) {
-    return value > 0 && ((status & 0xF0) === 0x90 || (status & 0xF0) === 0xB0);
+    return value > 0 && (status & 0xF0) === 0x90;
 };
 
 GeminiSlate.normalized = function(value) {
@@ -74,6 +40,17 @@ GeminiSlate.relativeValue = function(value) {
 
 GeminiSlate.toggleControl = function(group, key) {
     engine.setValue(group, key, engine.getValue(group, key) > 0 ? 0 : 1);
+};
+
+GeminiSlate.padIndex = function(control) {
+    var i;
+    for (i = 0; i < GeminiSlate.padNotes.length; i++) {
+        if (control === GeminiSlate.padNotes[i]) { return i + 1; }
+    }
+    for (i = 0; i < GeminiSlate.padShiftedNotes.length; i++) {
+        if (control === GeminiSlate.padShiftedNotes[i]) { return i + 1; }
+    }
+    return -1;
 };
 
 GeminiSlate.init = function(_id, _debugging) {
@@ -89,7 +66,6 @@ GeminiSlate.init = function(_id, _debugging) {
         engine.softTakeover("[QuickEffectRack1_" + group + "]", "super1", true);
     }
     engine.softTakeover("[Master]", "crossfader", true);
-    engine.softTakeover("[Master]", "headMix", true);
 };
 
 GeminiSlate.shutdown = function() {
@@ -100,8 +76,21 @@ GeminiSlate.shutdown = function() {
     }
 };
 
+// ----- Shift handlers ---------------------------------------------------
+
+GeminiSlate.shift = function(_channel, _control, value, status, group) {
+    var deck = GeminiSlate.deckFromGroup(group);
+    GeminiSlate.shiftByDeck[deck] = GeminiSlate.isPressed(value, status);
+};
+
+GeminiSlate.padModeButton = function(_channel, _control, value, status, _group) {
+    GeminiSlate.padModeShift = GeminiSlate.isPressed(value, status);
+};
+
+// ----- Jog wheel --------------------------------------------------------
+
 GeminiSlate.wheelTouch = function(_channel, _control, value, status, group) {
-    var deck = GeminiSlate.targetDeckFromGroup(group);
+    var deck = GeminiSlate.deckFromGroup(group);
     if (GeminiSlate.isPressed(value, status)) {
         engine.scratchEnable(
             deck,
@@ -117,194 +106,159 @@ GeminiSlate.wheelTouch = function(_channel, _control, value, status, group) {
 };
 
 GeminiSlate.wheelTurn = function(_channel, _control, value, _status, group) {
-    var deck = GeminiSlate.targetDeckFromGroup(group);
-    var targetGroup = GeminiSlate.groupFromDeck(deck);
+    var deck = GeminiSlate.deckFromGroup(group);
     var delta = GeminiSlate.relativeValue(value);
-
     if (engine.isScratching(deck)) {
         engine.scratchTick(deck, delta);
     } else {
-        engine.setValue(targetGroup, "jog", delta);
+        engine.setValue(group, "jog", delta);
     }
 };
 
-GeminiSlate.shift = function(_channel, _control, value, status, group) {
-    var deck = GeminiSlate.targetDeckFromGroup(group);
-    GeminiSlate.shiftByDeck[deck] = GeminiSlate.isPressed(value, status);
-};
+// ----- Pads -------------------------------------------------------------
 
-GeminiSlate.deckSwitch = function(_channel, _control, value, status, _group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-
-    var leftWasDeck1 = GeminiSlate.activeDeckBySide[1] === 1;
-    GeminiSlate.activeDeckBySide[1] = leftWasDeck1 ? 3 : 1;
-    GeminiSlate.activeDeckBySide[2] = leftWasDeck1 ? 4 : 2;
-};
-
-GeminiSlate.padMode = function(_channel, control, value, status, group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-
-    var deck = GeminiSlate.targetDeckFromGroup(group);
-    if (control === 0x55) {
-        GeminiSlate.padModeByDeck[deck] = GeminiSlate.padModes.hotcue;
-    } else if (control === 0x56) {
-        GeminiSlate.padModeByDeck[deck] = GeminiSlate.padModes.loop;
-    } else if (control === 0x57) {
-        GeminiSlate.padModeByDeck[deck] = GeminiSlate.padModes.sampler;
-    } else {
-        GeminiSlate.padModeByDeck[deck] =
-            (GeminiSlate.padModeByDeck[deck] + 1) % GeminiSlate.padModeNames.length;
-    }
-};
-
-GeminiSlate.pad = function(_channel, control, value, status, group) {
-    var deck = GeminiSlate.targetDeckFromGroup(group);
-    var targetGroup = GeminiSlate.groupFromDeck(deck);
+GeminiSlate.padHotcue = function(_channel, control, value, status, group) {
+    var deck = GeminiSlate.deckFromGroup(group);
     var pad = GeminiSlate.padIndex(control);
-    if (pad < 1 || pad > 8) {
-        return;
-    }
-
+    if (pad < 1) { return; }
     var pressed = GeminiSlate.isPressed(value, status);
-    var shifted = GeminiSlate.shiftByDeck[deck];
-    var mode = GeminiSlate.padModeByDeck[deck];
+    var shifted = GeminiSlate.shiftByDeck[deck] || GeminiSlate.padModeShift;
+    var key = "hotcue_" + pad + (shifted ? "_clear" : "_activate");
+    engine.setValue(group, key, pressed ? 1 : 0);
+};
 
-    if (mode === GeminiSlate.padModes.hotcue) {
-        var cueKey = "hotcue_" + pad + (shifted ? "_clear" : "_activate");
-        engine.setValue(targetGroup, cueKey, pressed ? 1 : 0);
-        return;
-    }
-
-    if (!pressed) {
-        return;
-    }
-
-    if (mode === GeminiSlate.padModes.loop) {
-        var size = GeminiSlate.loopSizes[pad - 1];
-        if (shifted) {
-            engine.setValue(targetGroup, "beatjump_" + size + "_backward", 1);
-        } else {
-            engine.setValue(targetGroup, "beatloop_" + size + "_toggle", 1);
-        }
-        return;
-    }
-
+GeminiSlate.padSampler = function(_channel, control, value, status, group) {
+    var pad = GeminiSlate.padIndex(control);
+    if (pad < 1) { return; }
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    var deck = GeminiSlate.deckFromGroup(group);
     var samplerGroup = "[Sampler" + pad + "]";
-    engine.setValue(samplerGroup, shifted ? "stop" : "cue_gotoandplay", 1);
+    if (GeminiSlate.shiftByDeck[deck] || GeminiSlate.padModeShift) {
+        engine.setValue(samplerGroup, "stop", 1);
+    } else {
+        engine.setValue(samplerGroup, "cue_gotoandplay", 1);
+    }
 };
 
-GeminiSlate.padIndex = function(control) {
-    var leftPads = [0x06, 0x09, 0x0C, 0x0F, 0x12, 0x15, 0x18, 0x1B];
-    var rightPads = [0x08, 0x0B, 0x0E, 0x11, 0x14, 0x17, 0x1A, 0x1D];
-    var i;
-
-    for (i = 0; i < leftPads.length; i++) {
-        if (control === leftPads[i]) {
-            return i + 1;
-        }
-    }
-    for (i = 0; i < rightPads.length; i++) {
-        if (control === rightPads[i]) {
-            return i + 1;
-        }
-    }
-    return -1;
-};
+// ----- Transport --------------------------------------------------------
 
 GeminiSlate.playButton = function(_channel, _control, value, status, group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-    GeminiSlate.toggleControl(GeminiSlate.targetGroupFromGroup(group), "play");
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    GeminiSlate.toggleControl(group, "play");
 };
 
 GeminiSlate.cueButton = function(_channel, _control, value, status, group) {
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    var deck = GeminiSlate.deckFromGroup(targetGroup);
-
+    var deck = GeminiSlate.deckFromGroup(group);
     if (GeminiSlate.shiftByDeck[deck] && GeminiSlate.isPressed(value, status)) {
-        engine.setValue(targetGroup, "cue_clear", 1);
+        engine.setValue(group, "cue_clear", 1);
         return;
     }
-    engine.setValue(targetGroup, "cue_default", GeminiSlate.isPressed(value, status) ? 1 : 0);
+    engine.setValue(group, "cue_default", GeminiSlate.isPressed(value, status) ? 1 : 0);
 };
 
 GeminiSlate.syncButton = function(_channel, _control, value, status, group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    var deck = GeminiSlate.deckFromGroup(targetGroup);
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    var deck = GeminiSlate.deckFromGroup(group);
     if (GeminiSlate.shiftByDeck[deck]) {
-        GeminiSlate.toggleControl(targetGroup, "sync_enabled");
+        GeminiSlate.toggleControl(group, "sync_enabled");
     } else {
-        engine.setValue(targetGroup, "beatsync", 1);
+        engine.setValue(group, "beatsync", 1);
     }
 };
 
 GeminiSlate.loadButton = function(_channel, _control, value, status, group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    var deck = GeminiSlate.deckFromGroup(targetGroup);
-    engine.setValue(targetGroup, GeminiSlate.shiftByDeck[deck] ? "eject" : "LoadSelectedTrack", 1);
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue(group, "LoadSelectedTrack", 1);
 };
 
 GeminiSlate.pflButton = function(_channel, _control, value, status, group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-    GeminiSlate.toggleControl(GeminiSlate.targetGroupFromGroup(group), "pfl");
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    GeminiSlate.toggleControl(group, "pfl");
 };
 
-GeminiSlate.reverseButton = function(_channel, _control, value, status, group) {
-    engine.setValue(GeminiSlate.targetGroupFromGroup(group), "reverseroll", GeminiSlate.isPressed(value, status) ? 1 : 0);
+GeminiSlate.keyLock = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    GeminiSlate.toggleControl(group, "keylock");
 };
+
+// ----- FX (per deck on Effect Unit 1..4 channel slot) -------------------
+
+GeminiSlate.fxToggle = function(deck, fxSlot, value, status) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    var unit = "[EffectRack1_EffectUnit" + fxSlot + "]";
+    var assign = "group_[Channel" + deck + "]_enable";
+    GeminiSlate.toggleControl(unit, assign);
+};
+
+GeminiSlate.fx1 = function(_channel, _control, value, status, group) {
+    GeminiSlate.fxToggle(GeminiSlate.deckFromGroup(group), 1, value, status);
+};
+
+GeminiSlate.fx2 = function(_channel, _control, value, status, group) {
+    GeminiSlate.fxToggle(GeminiSlate.deckFromGroup(group), 2, value, status);
+};
+
+GeminiSlate.fx3 = function(_channel, _control, value, status, group) {
+    GeminiSlate.fxToggle(GeminiSlate.deckFromGroup(group), 3, value, status);
+};
+
+// ----- Loops ------------------------------------------------------------
+
+GeminiSlate.loopIn = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue(group, "loop_in", 1);
+};
+
+GeminiSlate.loopOut = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue(group, "loop_out", 1);
+};
+
+GeminiSlate.loopExit = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    GeminiSlate.toggleControl(group, "reloop_toggle");
+};
+
+GeminiSlate.loopHalve = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue(group, "loop_halve", 1);
+};
+
+// ----- Faders / knobs ---------------------------------------------------
 
 GeminiSlate.volume = function(_channel, _control, value, _status, group) {
-    engine.setParameter(GeminiSlate.targetGroupFromGroup(group), "volume", GeminiSlate.normalized(value));
+    engine.setParameter(group, "volume", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.pregain = function(_channel, _control, value, _status, group) {
-    engine.setParameter(GeminiSlate.targetGroupFromGroup(group), "pregain", GeminiSlate.normalized(value));
+    engine.setParameter(group, "pregain", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.rate = function(_channel, _control, value, _status, group) {
     var centered = (0.5 - GeminiSlate.normalized(value)) * 2;
-    engine.setValue(GeminiSlate.targetGroupFromGroup(group), "rate", centered * GeminiSlate.rateRange);
+    engine.setValue(group, "rate", centered * GeminiSlate.rateRange);
 };
 
 GeminiSlate.filter = function(_channel, _control, value, _status, group) {
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    engine.setParameter("[QuickEffectRack1_" + targetGroup + "]", "super1", GeminiSlate.normalized(value));
+    engine.setParameter("[QuickEffectRack1_" + group + "]", "super1", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.eqHigh = function(_channel, _control, value, _status, group) {
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter3", GeminiSlate.normalized(value));
+    engine.setParameter("[EqualizerRack1_" + group + "_Effect1]", "parameter3", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.eqMid = function(_channel, _control, value, _status, group) {
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter2", GeminiSlate.normalized(value));
+    engine.setParameter("[EqualizerRack1_" + group + "_Effect1]", "parameter2", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.eqLow = function(_channel, _control, value, _status, group) {
-    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
-    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter1", GeminiSlate.normalized(value));
+    engine.setParameter("[EqualizerRack1_" + group + "_Effect1]", "parameter1", GeminiSlate.normalized(value));
 };
+
+// ----- Master / library -------------------------------------------------
 
 GeminiSlate.crossfader = function(_channel, _control, value, _status, _group) {
     engine.setValue("[Master]", "crossfader", (GeminiSlate.normalized(value) * 2) - 1);
-};
-
-GeminiSlate.headMix = function(_channel, _control, value, _status, _group) {
-    engine.setParameter("[Master]", "headMix", GeminiSlate.normalized(value));
 };
 
 GeminiSlate.browseTurn = function(_channel, _control, value, _status, _group) {
@@ -314,10 +268,7 @@ GeminiSlate.browseTurn = function(_channel, _control, value, _status, _group) {
     }
 };
 
-GeminiSlate.browsePush = function(_channel, _control, value, status, _group) {
-    if (!GeminiSlate.isPressed(value, status)) {
-        return;
-    }
-    var leftDeck = GeminiSlate.activeDeckBySide[1];
-    engine.setValue(GeminiSlate.groupFromDeck(leftDeck), "LoadSelectedTrack", 1);
+GeminiSlate.browseBack = function(_channel, _control, value, status, _group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue("[Library]", "MoveFocusBackward", 1);
 };

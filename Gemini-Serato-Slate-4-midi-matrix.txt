@@ -1,114 +1,86 @@
-Button | STATUS | midino | Channel | Mixxx Group | Mixxx Key
-Deck 1 Shift | 0x91 | 0x37 | 2 | [Channel1] | GeminiSlate.shift
-Deck 1 Jog Touch | 0x91 | 0x41 | 2 | [Channel1] | GeminiSlate.wheelTouch
-Deck 1 Jog Turn | 0xB1 | 0x04 | 2 | [Channel1] | GeminiSlate.wheelTurn
-Deck 1 Rate Fader | 0xB1 | 0x01/0x03 | 2 | [Channel1] | GeminiSlate.rate
-Deck 1 Volume Fader | 0xB3 | 0x07 | 4 | [Channel1] | GeminiSlate.volume
-Deck 1 Pregain | 0xB3 | 0x0B | 4 | [Channel1] | GeminiSlate.pregain
-Deck 1 Filter | 0xB3 | 0x1B | 4 | [Channel1] | GeminiSlate.filter
-Deck 1 EQ High | 0xB3 | 0x0F | 4 | [Channel1] | GeminiSlate.eqHigh
-Deck 1 EQ Mid | 0xB3 | 0x13 | 4 | [Channel1] | GeminiSlate.eqMid
-Deck 1 EQ Low | 0xB3 | 0x17 | 4 | [Channel1] | GeminiSlate.eqLow
-Deck 1 Play | 0x91 | 0x3B | 2 | [Channel1] | GeminiSlate.playButton
-Deck 1 Cue | 0x91 | 0x3D | 2 | [Channel1] | GeminiSlate.cueButton
-Deck 1 Sync | 0x91 | 0x3F | 2 | [Channel1] | GeminiSlate.syncButton
-Deck 1 Load | 0x91 | 0x40 | 2 | [Channel1] | GeminiSlate.loadButton
-Deck 1 PFL | 0x91 | 0x05 | 2 | [Channel1] | GeminiSlate.pflButton
-Deck 1 Reverse | 0x91 | 0x54 | 2 | [Channel1] | GeminiSlate.reverseButton
-Deck 1 Pad Mode HotCue | 0x91 | 0x55 | 2 | [Channel1] | GeminiSlate.padMode
-Deck 1 Pad Mode Loop | 0x91 | 0x56 | 2 | [Channel1] | GeminiSlate.padMode
-Deck 1 Pad Mode Sampler | 0x91 | 0x57 | 2 | [Channel1] | GeminiSlate.padMode
-Deck 1 Pad 1 | 0x91 | 0x06 | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 2 | 0x91 | 0x09 | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 3 | 0x91 | 0x0C | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 4 | 0x91 | 0x0F | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 5 | 0x91 | 0x12 | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 6 | 0x91 | 0x15 | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 7 | 0x91 | 0x18 | 2 | [Channel1] | GeminiSlate.pad
-Deck 1 Pad 8 | 0x91 | 0x1B | 2 | [Channel1] | GeminiSlate.pad
-Deck 2 Shift | 0x94 | 0x37 | 5 | [Channel2] | GeminiSlate.shift
-Deck 2 Jog Touch | 0x94 | 0x41 | 5 | [Channel2] | GeminiSlate.wheelTouch
-Deck 2 Jog Turn | 0xB4 | 0x04 | 5 | [Channel2] | GeminiSlate.wheelTurn
-Deck 2 Rate Fader | 0xB4 | 0x01/0x03 | 5 | [Channel2] | GeminiSlate.rate
-Deck 2 Volume Fader | 0xB3 | 0x08 | 4 | [Channel2] | GeminiSlate.volume
-Deck 2 Pregain | 0xB3 | 0x0C | 4 | [Channel2] | GeminiSlate.pregain
-Deck 2 Filter | unconfirmed | unconfirmed | - | [Channel2] | GeminiSlate.filter
-Deck 2 EQ High | 0xB3 | 0x10 | 4 | [Channel2] | GeminiSlate.eqHigh
-Deck 2 EQ Mid | 0xB3 | 0x14 | 4 | [Channel2] | GeminiSlate.eqMid
-Deck 2 EQ Low | 0xB3 | 0x18 | 4 | [Channel2] | GeminiSlate.eqLow
-Deck 2 Play | 0x94 | 0x3B | 5 | [Channel2] | GeminiSlate.playButton
-Deck 2 Cue | 0x94 | 0x3D | 5 | [Channel2] | GeminiSlate.cueButton
-Deck 2 Sync | 0x94 | 0x3F | 5 | [Channel2] | GeminiSlate.syncButton
-Deck 2 Load | 0x94 | 0x40 | 5 | [Channel2] | GeminiSlate.loadButton
-Deck 2 PFL | 0x94 | 0x05 | 5 | [Channel2] | GeminiSlate.pflButton
-Deck 2 Reverse | 0x94 | 0x54 | 5 | [Channel2] | GeminiSlate.reverseButton
-Deck 2 Pad Mode HotCue | 0x94 | 0x55 | 5 | [Channel2] | GeminiSlate.padMode
-Deck 2 Pad Mode Loop | 0x94 | 0x56 | 5 | [Channel2] | GeminiSlate.padMode
-Deck 2 Pad Mode Sampler | 0x94 | 0x57 | 5 | [Channel2] | GeminiSlate.padMode
-Deck 2 Pad 1 | 0x94 | 0x08 | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 2 | 0x94 | 0x0B | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 3 | 0x94 | 0x0E | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 4 | 0x94 | 0x11 | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 5 | 0x94 | 0x14 | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 6 | 0x94 | 0x17 | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 7 | 0x94 | 0x1A | 5 | [Channel2] | GeminiSlate.pad
-Deck 2 Pad 8 | 0x94 | 0x1D | 5 | [Channel2] | GeminiSlate.pad
-Deck 3 Shift | 0x93 | 0x37 | 4 | [Channel3] | GeminiSlate.shift
-Deck 3 Jog Touch | 0x93 | 0x41 | 4 | [Channel3] | GeminiSlate.wheelTouch
-Deck 3 Jog Turn | 0xB3 | 0x04 | 4 | [Channel3] | GeminiSlate.wheelTurn
-Deck 3 Rate Fader | 0xB3 | 0x01/0x03 | 4 | [Channel3] | GeminiSlate.rate
-Deck 3 Volume Fader | 0xB3 | 0x07 | 4 | [Channel3] via deck switch | GeminiSlate.volume
-Deck 3 Pregain | 0xB3 | 0x0B | 4 | [Channel3] via deck switch | GeminiSlate.pregain
-Deck 3 Filter | 0xB3 | 0x1B | 4 | [Channel3] via deck switch | GeminiSlate.filter
-Deck 3 EQ High | 0xB3 | 0x0F | 4 | [Channel3] via deck switch | GeminiSlate.eqHigh
-Deck 3 EQ Mid | 0xB3 | 0x13 | 4 | [Channel3] via deck switch | GeminiSlate.eqMid
-Deck 3 EQ Low | 0xB3 | 0x17 | 4 | [Channel3] via deck switch | GeminiSlate.eqLow
-Deck 3 Play | 0x93 | 0x3B | 4 | [Channel3] | GeminiSlate.playButton
-Deck 3 Cue | 0x93 | 0x3D | 4 | [Channel3] | GeminiSlate.cueButton
-Deck 3 Sync | 0x93 | 0x3F | 4 | [Channel3] | GeminiSlate.syncButton
-Deck 3 Load | 0x93 | 0x40 | 4 | [Channel3] | GeminiSlate.loadButton
-Deck 3 PFL | 0x93 | 0x05 | 4 | [Channel3] | GeminiSlate.pflButton
-Deck 3 Reverse | 0x93 | 0x54 | 4 | [Channel3] | GeminiSlate.reverseButton
-Deck 3 Pad Mode HotCue | 0x93 | 0x55 | 4 | [Channel3] | GeminiSlate.padMode
-Deck 3 Pad Mode Loop | 0x93 | 0x56 | 4 | [Channel3] | GeminiSlate.padMode
-Deck 3 Pad Mode Sampler | 0x93 | 0x57 | 4 | [Channel3] | GeminiSlate.padMode
-Deck 3 Pad 1 | 0x93 | 0x06 | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 2 | 0x93 | 0x09 | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 3 | 0x93 | 0x0C | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 4 | 0x93 | 0x0F | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 5 | 0x93 | 0x12 | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 6 | 0x93 | 0x15 | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 7 | 0x93 | 0x18 | 4 | [Channel3] | GeminiSlate.pad
-Deck 3 Pad 8 | 0x93 | 0x1B | 4 | [Channel3] | GeminiSlate.pad
-Deck 4 Shift | 0x95 | 0x37 | 6 | [Channel4] | GeminiSlate.shift
-Deck 4 Jog Touch | 0x95 | 0x41 | 6 | [Channel4] | GeminiSlate.wheelTouch
-Deck 4 Jog Turn | 0xB5 | 0x04 | 6 | [Channel4] | GeminiSlate.wheelTurn
-Deck 4 Rate Fader | 0xB5 | 0x01/0x03 | 6 | [Channel4] | GeminiSlate.rate
-Deck 4 Volume Fader | 0xB3 | 0x08 | 4 | [Channel4] via deck switch | GeminiSlate.volume
-Deck 4 Pregain | 0xB3 | 0x0C | 4 | [Channel4] via deck switch | GeminiSlate.pregain
-Deck 4 Filter | unconfirmed | unconfirmed | - | [Channel4] via deck switch | GeminiSlate.filter
-Deck 4 EQ High | 0xB3 | 0x10 | 4 | [Channel4] via deck switch | GeminiSlate.eqHigh
-Deck 4 EQ Mid | 0xB3 | 0x14 | 4 | [Channel4] via deck switch | GeminiSlate.eqMid
-Deck 4 EQ Low | 0xB3 | 0x18 | 4 | [Channel4] via deck switch | GeminiSlate.eqLow
-Deck 4 Play | 0x95 | 0x3B | 6 | [Channel4] | GeminiSlate.playButton
-Deck 4 Cue | 0x95 | 0x3D | 6 | [Channel4] | GeminiSlate.cueButton
-Deck 4 Sync | 0x95 | 0x3F | 6 | [Channel4] | GeminiSlate.syncButton
-Deck 4 Load | 0x95 | 0x40 | 6 | [Channel4] | GeminiSlate.loadButton
-Deck 4 PFL | 0x95 | 0x05 | 6 | [Channel4] | GeminiSlate.pflButton
-Deck 4 Reverse | 0x95 | 0x54 | 6 | [Channel4] | GeminiSlate.reverseButton
-Deck 4 Pad Mode HotCue | 0x95 | 0x55 | 6 | [Channel4] | GeminiSlate.padMode
-Deck 4 Pad Mode Loop | 0x95 | 0x56 | 6 | [Channel4] | GeminiSlate.padMode
-Deck 4 Pad Mode Sampler | 0x95 | 0x57 | 6 | [Channel4] | GeminiSlate.padMode
-Deck 4 Pad 1 | 0x95 | 0x06 | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 2 | 0x95 | 0x09 | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 3 | 0x95 | 0x0C | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 4 | 0x95 | 0x0F | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 5 | 0x95 | 0x12 | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 6 | 0x95 | 0x15 | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 7 | 0x95 | 0x18 | 6 | [Channel4] | GeminiSlate.pad
-Deck 4 Pad 8 | 0x95 | 0x1B | 6 | [Channel4] | GeminiSlate.pad
-Deck 3/4 Switch | 0x93 | 0x0D | 4 | [Master] | GeminiSlate.deckSwitch
-Crossfader | 0xB3 | 0x19 | 4 | [Master] | GeminiSlate.crossfader
-Head Mix | unconfirmed | unconfirmed | - | [Master] | GeminiSlate.headMix
-Browse Encoder | 0xB3 | 0x1E | 4 | [Library] | GeminiSlate.browseTurn
-Browse Push | 0x93 | 0x0A | 4 | [Library] | GeminiSlate.browsePush
+Gemini Slate 4 — MIDI Matrix (auf Basis von MIDI-OX Log mit Deck 1 auf MIDI-Kanal 1)
+
+Konvention:
+- Deck 1 = MIDI Channel 1 (Status 0x90 / 0xB0)
+- Deck 2 = MIDI Channel 2 (Status 0x91 / 0xB1)
+- Deck 3 = MIDI Channel 3 (Status 0x92 / 0xB2)
+- Deck 4 = MIDI Channel 4 (Status 0x93 / 0xB3)  - kollidiert ggf. mit Globals; siehe unten
+- Global = MIDI Channel 4 (Status 0x93 / 0xB3) für PAD MODE / Mixer / Browse
+
+Pro Deck (Status nur fuer Deck 1 angegeben; Decks 2/3/4 analog mit Status 0x91/0x92/0x93 bzw. 0xB1/0xB2/0xB3):
+
+Button / Control       | Status (Deck 1) | midino | Mixxx Group   | Skript / Mixxx Key
+Shift (lokal)          | 0x90            | 0x37   | [Channel1]    | GeminiSlate.shift
+Pad 1 (HotCue)         | 0x90            | 0x06   | [Channel1]    | GeminiSlate.padHotcue
+Pad 2 (HotCue)         | 0x90            | 0x09   | [Channel1]    | GeminiSlate.padHotcue
+Pad 3 (HotCue)         | 0x90            | 0x0C   | [Channel1]    | GeminiSlate.padHotcue
+Pad 4 (HotCue)         | 0x90            | 0x0F   | [Channel1]    | GeminiSlate.padHotcue
+Pad 5 (HotCue)         | 0x90            | 0x12   | [Channel1]    | GeminiSlate.padHotcue
+Pad 6 (HotCue)         | 0x90            | 0x15   | [Channel1]    | GeminiSlate.padHotcue
+Pad 7 (HotCue)         | 0x90            | 0x18   | [Channel1]    | GeminiSlate.padHotcue
+Pad 8 (HotCue)         | 0x90            | 0x1B   | [Channel1]    | GeminiSlate.padHotcue
+Pad 1 (Sampler/Shift)  | 0x90            | 0x55   | [Channel1]    | GeminiSlate.padSampler
+Pad 2 (Sampler/Shift)  | 0x90            | 0x56   | [Channel1]    | GeminiSlate.padSampler
+Pad 3 (Sampler/Shift)  | 0x90            | 0x57   | [Channel1]    | GeminiSlate.padSampler
+Pad 4 (Sampler/Shift)  | 0x90            | 0x58   | [Channel1]    | GeminiSlate.padSampler
+Pad 5 (Sampler/Shift)  | 0x90            | 0x59   | [Channel1]    | GeminiSlate.padSampler
+Pad 6 (Sampler/Shift)  | 0x90            | 0x5A   | [Channel1]    | GeminiSlate.padSampler
+Pad 7 (Sampler/Shift)  | 0x90            | 0x5B   | [Channel1]    | GeminiSlate.padSampler
+Pad 8 (Sampler/Shift)  | 0x90            | 0x5C   | [Channel1]    | GeminiSlate.padSampler
+KEY LOCK               | 0x90            | 0x04   | [Channel1]    | GeminiSlate.keyLock
+FX1                    | 0x90            | 0x01   | [Channel1]    | GeminiSlate.fx1
+FX2                    | 0x90            | 0x02   | [Channel1]    | GeminiSlate.fx2
+FX3                    | 0x90            | 0x03   | [Channel1]    | GeminiSlate.fx3
+PFL / Headphone Cue    | 0x90            | 0x05   | [Channel1]    | GeminiSlate.pflButton
+LOOP IN                | 0x90            | 0x3C   | [Channel1]    | GeminiSlate.loopIn
+LOOP OUT               | 0x90            | 0x3E   | [Channel1]    | GeminiSlate.loopOut
+LOOP EXIT/Reloop       | 0x90            | 0x3D   | [Channel1]    | GeminiSlate.loopExit
+LOOP 1/2X              | 0x90            | 0x3F   | [Channel1]    | GeminiSlate.loopHalve
+CUE                    | 0x90            | 0x39   | [Channel1]    | GeminiSlate.cueButton
+PLAY/PAUSE             | 0x90            | 0x38   | [Channel1]    | GeminiSlate.playButton
+SYNC                   | 0x90            | 0x54   | [Channel1]    | GeminiSlate.syncButton
+Jog Touch              | 0x90            | 0x41   | [Channel1]    | GeminiSlate.wheelTouch
+Jog Turn               | 0xB0            | 0x04   | [Channel1]    | GeminiSlate.wheelTurn
+Pitch / Rate Fader     | 0xB0            | 0x07   | [Channel1]    | GeminiSlate.rate
+Pregain (optional)     | 0xB0            | 0x08   | [Channel1]    | GeminiSlate.pregain
+
+Globale Bedienelemente (immer Status 0x93 / 0xB3):
+
+Button / Control       | Status | midino | Mixxx Group   | Skript / Mixxx Key
+PAD MODE (zentral)     | 0x93   | 0x0D   | [Master]      | GeminiSlate.padModeButton
+BACK (Browser)         | 0x93   | 0x07   | [Library]     | GeminiSlate.browseBack
+LOAD 1                 | 0x93   | 0x03   | [Channel1]    | GeminiSlate.loadButton
+LOAD 3                 | 0x93   | 0x01   | [Channel3]    | GeminiSlate.loadButton
+
+Mixer / Master         | Status | midino | Mixxx Group   | Skript / Mixxx Key
+Volume Deck 1          | 0xB3   | 0x07   | [Channel1]    | GeminiSlate.volume
+Filter Deck 1          | 0xB3   | 0x0B   | [Channel1]    | GeminiSlate.filter
+EQ High Deck 1         | 0xB3   | 0x0F   | [Channel1]    | GeminiSlate.eqHigh
+EQ Mid  Deck 1         | 0xB3   | 0x13   | [Channel1]    | GeminiSlate.eqMid
+EQ Low  Deck 1         | 0xB3   | 0x17   | [Channel1]    | GeminiSlate.eqLow
+Volume Deck 2          | 0xB3   | 0x08   | [Channel2]    | GeminiSlate.volume
+Filter Deck 2          | 0xB3   | 0x0C   | [Channel2]    | GeminiSlate.filter
+EQ High Deck 2         | 0xB3   | 0x10   | [Channel2]    | GeminiSlate.eqHigh
+EQ Mid  Deck 2         | 0xB3   | 0x14   | [Channel2]    | GeminiSlate.eqMid
+EQ Low  Deck 2         | 0xB3   | 0x18   | [Channel2]    | GeminiSlate.eqLow
+Volume Deck 3          | 0xB3   | 0x09   | [Channel3]    | GeminiSlate.volume
+Filter Deck 3          | 0xB3   | 0x0D   | [Channel3]    | GeminiSlate.filter
+EQ High Deck 3         | 0xB3   | 0x11   | [Channel3]    | GeminiSlate.eqHigh
+EQ Mid  Deck 3         | 0xB3   | 0x15   | [Channel3]    | GeminiSlate.eqMid
+EQ Low  Deck 3         | 0xB3   | 0x19   | [Channel3]    | GeminiSlate.eqLow
+Volume Deck 4          | 0xB3   | 0x0A   | [Channel4]    | GeminiSlate.volume
+Filter Deck 4          | 0xB3   | 0x0E   | [Channel4]    | GeminiSlate.filter
+EQ High Deck 4         | 0xB3   | 0x12   | [Channel4]    | GeminiSlate.eqHigh
+EQ Mid  Deck 4         | 0xB3   | 0x16   | [Channel4]    | GeminiSlate.eqMid
+EQ Low  Deck 4         | 0xB3   | 0x1A   | [Channel4]    | GeminiSlate.eqLow
+Crossfader             | 0xB3   | 0x1B   | [Master]      | GeminiSlate.crossfader
+Browse Encoder         | 0xB3   | 0x1E   | [Library]     | GeminiSlate.browseTurn
+
+Anmerkungen:
+- Belegung von 0x01..0x05 (FX1/FX2/FX3/KEY LOCK/PFL) und 0x38/0x39 (PLAY/CUE) basieren auf
+  dem typischen Layout, da im Log keine Beschriftung angegeben war. Bitte testen und
+  ggf. Notenzuordnung in der XML/JS tauschen, falls einzelne Tasten anders senden.
+- Decks 3/4 senden ggf. ueber DECK SEL physikalisch dieselben Notes wie Deck 1/2 auf
+  einem anderen MIDI-Channel. Falls dein Slate fuer Deck 3 wieder Channel 1 sendet,
+  einfach in der XML 0x92 -> 0x90 (und 0xB2 -> 0xB0) tauschen und die Pads im Skript
+  per Deck-Switch-Logik umrouten.
