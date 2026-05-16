@@ -32,12 +32,7 @@
             <control><group>[Channel1]</group><key>GeminiSlate.pad</key><status>0x91</status><midino>0x1B</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.wheelTurn</key><status>0xB1</status><midino>0x04</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.volume</key><status>0xB1</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.pregain</key><status>0xB1</status><midino>0x0B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>GeminiSlate.filter</key><status>0xB1</status><midino>0x14</midino><options><Script-Binding/></options></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter3</key><status>0xB1</status><midino>0x0F</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter2</key><status>0xB1</status><midino>0x13</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter1</key><status>0xB1</status><midino>0x17</midino><options><Soft-takeover/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x03</midino><options><Script-Binding/></options></control>
 
             <!-- Deck 2: MIDI-OX status 0x94 / 0xB4 -->
             <control><group>[Channel2]</group><key>GeminiSlate.shift</key><status>0x94</status><midino>0x37</midino><options><Script-Binding/></options></control>
@@ -61,12 +56,7 @@
             <control><group>[Channel2]</group><key>GeminiSlate.pad</key><status>0x94</status><midino>0x1D</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.wheelTurn</key><status>0xB4</status><midino>0x04</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB4</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.volume</key><status>0xB4</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.pregain</key><status>0xB4</status><midino>0x0B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>GeminiSlate.filter</key><status>0xB4</status><midino>0x14</midino><options><Script-Binding/></options></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter3</key><status>0xB4</status><midino>0x0F</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter2</key><status>0xB4</status><midino>0x13</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter1</key><status>0xB4</status><midino>0x17</midino><options><Soft-takeover/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB4</status><midino>0x03</midino><options><Script-Binding/></options></control>
 
             <!-- Deck 3: MIDI-OX status 0x93 / 0xB3 -->
             <control><group>[Channel3]</group><key>GeminiSlate.shift</key><status>0x93</status><midino>0x37</midino><options><Script-Binding/></options></control>
@@ -90,12 +80,7 @@
             <control><group>[Channel3]</group><key>GeminiSlate.pad</key><status>0x93</status><midino>0x1B</midino><options><Script-Binding/></options></control>
             <control><group>[Channel3]</group><key>GeminiSlate.wheelTurn</key><status>0xB3</status><midino>0x04</midino><options><Script-Binding/></options></control>
             <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB3</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.pregain</key><status>0xB3</status><midino>0x0B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x14</midino><options><Script-Binding/></options></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x0F</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x13</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x17</midino><options><Soft-takeover/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB3</status><midino>0x03</midino><options><Script-Binding/></options></control>
 
             <!-- Deck 4: MIDI-OX status 0x95 / 0xB5 -->
             <control><group>[Channel4]</group><key>GeminiSlate.shift</key><status>0x95</status><midino>0x37</midino><options><Script-Binding/></options></control>
@@ -119,19 +104,26 @@
             <control><group>[Channel4]</group><key>GeminiSlate.pad</key><status>0x95</status><midino>0x1B</midino><options><Script-Binding/></options></control>
             <control><group>[Channel4]</group><key>GeminiSlate.wheelTurn</key><status>0xB5</status><midino>0x04</midino><options><Script-Binding/></options></control>
             <control><group>[Channel4]</group><key>GeminiSlate.rate</key><status>0xB5</status><midino>0x01</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.volume</key><status>0xB5</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.pregain</key><status>0xB5</status><midino>0x0B</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel4]</group><key>GeminiSlate.filter</key><status>0xB5</status><midino>0x14</midino><options><Script-Binding/></options></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter3</key><status>0xB5</status><midino>0x0F</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter2</key><status>0xB5</status><midino>0x13</midino><options><Soft-takeover/></options></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter1</key><status>0xB5</status><midino>0x17</midino><options><Soft-takeover/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.rate</key><status>0xB5</status><midino>0x03</midino><options><Script-Binding/></options></control>
+
+            <!-- Mixer controls captured on MIDI channel 4 (0xB3). These control the active deck layer. -->
+            <control><group>[Channel1]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x07</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.pregain</key><status>0xB3</status><midino>0x0B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x0F</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x13</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x17</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.filter</key><status>0xB3</status><midino>0x1B</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.volume</key><status>0xB3</status><midino>0x08</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.pregain</key><status>0xB3</status><midino>0x0C</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.eqHigh</key><status>0xB3</status><midino>0x10</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.eqMid</key><status>0xB3</status><midino>0x14</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.eqLow</key><status>0xB3</status><midino>0x18</midino><options><Script-Binding/></options></control>
+            <control><group>[Master]</group><key>GeminiSlate.crossfader</key><status>0xB3</status><midino>0x19</midino><options><Script-Binding/></options></control>
 
             <!-- Global controls captured on MIDI channel 4. -->
             <control><group>[Master]</group><key>GeminiSlate.deckSwitch</key><status>0x93</status><midino>0x0D</midino><options><Script-Binding/></options></control>
-            <control><group>[Master]</group><key>GeminiSlate.crossfader</key><status>0xB3</status><midino>0x08</midino><options><Script-Binding/></options></control>
-            <control><group>[Master]</group><key>GeminiSlate.headMix</key><status>0xB3</status><midino>0x0C</midino><options><Script-Binding/></options></control>
             <control><group>[Library]</group><key>GeminiSlate.browseTurn</key><status>0xB3</status><midino>0x1E</midino><options><Script-Binding/></options></control>
-            <control><group>[Library]</group><key>GeminiSlate.browsePush</key><status>0x93</status><midino>0x09</midino><options><Script-Binding/></options></control>
+            <control><group>[Library]</group><key>GeminiSlate.browsePush</key><status>0x93</status><midino>0x0A</midino><options><Script-Binding/></options></control>
         </controls>
     </controller>
 </MixxxControllerPreset>

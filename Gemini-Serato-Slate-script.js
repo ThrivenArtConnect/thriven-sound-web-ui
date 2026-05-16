@@ -284,6 +284,21 @@ GeminiSlate.filter = function(_channel, _control, value, _status, group) {
     engine.setParameter("[QuickEffectRack1_" + targetGroup + "]", "super1", GeminiSlate.normalized(value));
 };
 
+GeminiSlate.eqHigh = function(_channel, _control, value, _status, group) {
+    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
+    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter3", GeminiSlate.normalized(value));
+};
+
+GeminiSlate.eqMid = function(_channel, _control, value, _status, group) {
+    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
+    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter2", GeminiSlate.normalized(value));
+};
+
+GeminiSlate.eqLow = function(_channel, _control, value, _status, group) {
+    var targetGroup = GeminiSlate.targetGroupFromGroup(group);
+    engine.setParameter("[EqualizerRack1_" + targetGroup + "_Effect1]", "parameter1", GeminiSlate.normalized(value));
+};
+
 GeminiSlate.crossfader = function(_channel, _control, value, _status, _group) {
     engine.setValue("[Master]", "crossfader", (GeminiSlate.normalized(value) * 2) - 1);
 };
