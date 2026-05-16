@@ -1,16 +1,44 @@
 // Gemini Slate 4 / Gemini Serato Slate 4 controller script for Mixxx 2.4+.
 // Direct XML bindings handle most controls. This script handles:
+//   - User options (pitch range, jog sensitivity, etc.)
 //   - Pitch range setup on init
 //   - Shift / Pad-mode state
 //   - Jog wheel scratching
 //   - Bipolar pitch fader scaling
 //   - Bipolar crossfader scaling
 //   - Toggle buttons (play, keylock, pfl, FX enable) via script.toggleControl
+//   - Cue button with optional reverse roll on shift
+//   - Smooth pitch-back-to-zero on shift + KEY LOCK
+//   - Browse encoder push as track preview
 
 // eslint-disable-next-line no-var
 var GeminiSlate = {};
 
+// ============================================================
+//                    USER OPTIONS
+// ============================================================
+
+// Pitch fader range, e.g. 0.08 == +/- 8 %
 GeminiSlate.rateRange = 0.08;
+
+// Jog wheel sensitivity multiplier. 1 = default, 2 = twice as sensitive.
+GeminiSlate.jogwheelSensitivity = 1.0;
+
+// If true, Shift + Cue plays the track in reverse with slip enabled
+// (censor effect). If false, Shift + Cue jumps to track start and stops.
+GeminiSlate.reverseRollOnShiftCue = false;
+
+// If true, releasing the browse-encoder push (after turning it) jumps the
+// preview deck to jumpPreviewPosition (0 = start, 1 = end).
+GeminiSlate.jumpPreviewEnabled = true;
+GeminiSlate.jumpPreviewPosition = 0.5;
+
+// Time per step in ms for pitch fade back to 0 (Shift + KEY LOCK).
+GeminiSlate.speedRateToNormalTime = 200;
+
+// ============================================================
+//                INTERNAL STATE
+// ============================================================
 
 GeminiSlate.alpha = 1.0 / 8;
 GeminiSlate.beta = GeminiSlate.alpha / 32;
@@ -19,6 +47,14 @@ GeminiSlate.jogIntervalsPerRev = 128;
 
 GeminiSlate.shiftByDeck = { 1: false, 2: false, 3: false, 4: false };
 GeminiSlate.padModeShift = false;
+
+GeminiSlate.speedRateToNormalTimer = { 1: 0, 2: 0, 3: 0, 4: 0 };
+
+GeminiSlate.browsePushChanged = false;
+
+// ============================================================
+//                HELPERS
+// ============================================================
 
 GeminiSlate.deckFromGroup = function(group) {
     return script.deckFromGroup(group);
@@ -35,6 +71,10 @@ GeminiSlate.normalized = function(value) {
 GeminiSlate.relativeValue = function(value) {
     return value - 0x40;
 };
+
+// ============================================================
+//                INIT / SHUTDOWN
+// ============================================================
 
 GeminiSlate.init = function(_id, _debugging) {
     for (var deck = 1; deck <= 4; deck++) {
@@ -56,8 +96,15 @@ GeminiSlate.shutdown = function() {
         if (engine.isScratching(deck)) {
             engine.scratchDisable(deck, true);
         }
+        if (GeminiSlate.speedRateToNormalTimer[deck]) {
+            engine.stopTimer(GeminiSlate.speedRateToNormalTimer[deck]);
+        }
     }
 };
+
+// ============================================================
+//                SHIFT / PAD MODE
+// ============================================================
 
 GeminiSlate.shift = function(_channel, _control, value, status, group) {
     var deck = GeminiSlate.deckFromGroup(group);
@@ -67,6 +114,10 @@ GeminiSlate.shift = function(_channel, _control, value, status, group) {
 GeminiSlate.padModeButton = function(_channel, _control, value, status, _group) {
     GeminiSlate.padModeShift = GeminiSlate.isPressed(value, status);
 };
+
+// ============================================================
+//                JOG WHEEL
+// ============================================================
 
 GeminiSlate.wheelTouch = function(_channel, _control, value, status, group) {
     var deck = GeminiSlate.deckFromGroup(group);
@@ -86,13 +137,17 @@ GeminiSlate.wheelTouch = function(_channel, _control, value, status, group) {
 
 GeminiSlate.wheelTurn = function(_channel, _control, value, _status, group) {
     var deck = GeminiSlate.deckFromGroup(group);
-    var delta = GeminiSlate.relativeValue(value);
+    var delta = GeminiSlate.relativeValue(value) * GeminiSlate.jogwheelSensitivity;
     if (engine.isScratching(deck)) {
         engine.scratchTick(deck, delta);
     } else {
         engine.setValue(group, "jog", delta);
     }
 };
+
+// ============================================================
+//                FADERS / KNOBS  (bipolar)
+// ============================================================
 
 GeminiSlate.rate = function(_channel, _control, value, _status, group) {
     var centered = (0.5 - GeminiSlate.normalized(value)) * 2;
@@ -103,7 +158,9 @@ GeminiSlate.crossfader = function(_channel, _control, value, _status, _group) {
     engine.setValue("[Master]", "crossfader", (GeminiSlate.normalized(value) * 2) - 1);
 };
 
-// ----- Toggle buttons (only act on press) -------------------------------
+// ============================================================
+//                TOGGLE BUTTONS
+// ============================================================
 
 GeminiSlate.playToggle = function(_channel, _control, value, status, group) {
     if (!GeminiSlate.isPressed(value, status)) { return; }
@@ -112,7 +169,18 @@ GeminiSlate.playToggle = function(_channel, _control, value, status, group) {
 
 GeminiSlate.keylockToggle = function(_channel, _control, value, status, group) {
     if (!GeminiSlate.isPressed(value, status)) { return; }
-    script.toggleControl(group, "keylock");
+    var deck = GeminiSlate.deckFromGroup(group);
+    if (GeminiSlate.shiftByDeck[deck]) {
+        if (GeminiSlate.speedRateToNormalTimer[deck]) {
+            engine.stopTimer(GeminiSlate.speedRateToNormalTimer[deck]);
+        }
+        GeminiSlate.speedRateToNormalTimer[deck] = engine.beginTimer(
+            GeminiSlate.speedRateToNormalTime,
+            function() { GeminiSlate.speedRateToNormal(deck); }
+        );
+    } else {
+        script.toggleControl(group, "keylock");
+    }
 };
 
 GeminiSlate.pflToggle = function(_channel, _control, value, status, group) {
@@ -139,12 +207,80 @@ GeminiSlate.fx2Deck3 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2
 GeminiSlate.fx3Deck3 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(3, 3, v, s); };
 GeminiSlate.fx2Deck4 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2, 4, v, s); };
 
-// ----- Library browse ---------------------------------------------------
+// ============================================================
+//                CUE  (with shift options)
+// ============================================================
+
+GeminiSlate.cueButton = function(_channel, _control, value, status, group) {
+    var deck = GeminiSlate.deckFromGroup(group);
+    var pressed = GeminiSlate.isPressed(value, status);
+    if (GeminiSlate.shiftByDeck[deck]) {
+        if (GeminiSlate.reverseRollOnShiftCue) {
+            engine.setValue(group, "reverseroll", pressed ? 1 : 0);
+        } else if (pressed) {
+            engine.setValue(group, "start_stop", 1);
+        }
+    } else {
+        engine.setValue(group, "cue_default", pressed ? 1 : 0);
+    }
+};
+
+// ============================================================
+//                SPEED RATE TO NORMAL  (shift + KEY LOCK)
+// ============================================================
+
+GeminiSlate.speedRateToNormal = function(deck) {
+    var group = "[Channel" + deck + "]";
+    var speed = engine.getValue(group, "rate");
+    if (speed > 0) {
+        engine.setValue(group, "rate_perm_up_small", true);
+        if (engine.getValue(group, "rate") <= 0) {
+            engine.stopTimer(GeminiSlate.speedRateToNormalTimer[deck]);
+            GeminiSlate.speedRateToNormalTimer[deck] = 0;
+            engine.setValue(group, "rate", 0);
+        }
+    } else if (speed < 0) {
+        engine.setValue(group, "rate_perm_down_small", true);
+        if (engine.getValue(group, "rate") >= 0) {
+            engine.stopTimer(GeminiSlate.speedRateToNormalTimer[deck]);
+            GeminiSlate.speedRateToNormalTimer[deck] = 0;
+            engine.setValue(group, "rate", 0);
+        }
+    } else {
+        engine.stopTimer(GeminiSlate.speedRateToNormalTimer[deck]);
+        GeminiSlate.speedRateToNormalTimer[deck] = 0;
+    }
+};
+
+// ============================================================
+//                LIBRARY BROWSE
+// ============================================================
 
 GeminiSlate.browseTurn = function(_channel, _control, value, _status, _group) {
     var delta = GeminiSlate.relativeValue(value);
     if (delta !== 0) {
         engine.setValue("[Library]", "MoveVertical", delta);
+        GeminiSlate.browsePushChanged = true;
+    }
+};
+
+GeminiSlate.browsePush = function(_channel, _control, value, status, _group) {
+    var pressed = GeminiSlate.isPressed(value, status);
+    if (GeminiSlate.browsePushChanged) {
+        if (pressed) {
+            engine.setValue("[PreviewDeck1]", "LoadSelectedTrackAndPlay", 1);
+        } else {
+            if (GeminiSlate.jumpPreviewEnabled) {
+                engine.setValue("[PreviewDeck1]", "playposition", GeminiSlate.jumpPreviewPosition);
+            }
+            GeminiSlate.browsePushChanged = false;
+        }
+    } else {
+        if (pressed) {
+            engine.setValue("[PreviewDeck1]", "stop", 1);
+        } else {
+            GeminiSlate.browsePushChanged = true;
+        }
     }
 };
 
