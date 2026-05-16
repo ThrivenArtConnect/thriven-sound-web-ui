@@ -3,7 +3,7 @@
     <info>
         <name>Gemini Slate 4 / Gemini Serato Slate 4</name>
         <author>Cursor AI</author>
-        <description>Final 4-deck mapping for the Gemini Slate 4 (SLATE4) on Mixxx 2.4+. Uses direct XML bindings for buttons / pads / mixer (cleaner and more reliable) and a small JS script only for jog scratching, the bipolar pitch / crossfader scaling and shift state.</description>
+        <description>Final 4-deck mapping for the Gemini Slate 4 (SLATE4) on Mixxx 2.4+. Direct XML bindings for momentary triggers, pads and absolute mixer knobs (with Soft-takeover to avoid jumps). Script bindings only for true toggles, jog scratching and bipolar faders.</description>
     </info>
     <controller id="SLATE4">
         <scriptfiles>
@@ -15,10 +15,8 @@
             <!-- DECK 1  -  status 0x90 / 0xB0                          -->
             <!-- ====================================================== -->
 
-            <!-- Local shift -->
             <control><group>[Channel1]</group><key>GeminiSlate.shift</key><status>0x90</status><midino>0x37</midino><options><Script-Binding/></options></control>
 
-            <!-- Pads (Hot Cue) -->
             <control><group>[Channel1]</group><key>hotcue_1_activate</key><status>0x90</status><midino>0x06</midino></control>
             <control><group>[Channel1]</group><key>hotcue_2_activate</key><status>0x90</status><midino>0x09</midino></control>
             <control><group>[Channel1]</group><key>hotcue_3_activate</key><status>0x90</status><midino>0x0C</midino></control>
@@ -28,7 +26,6 @@
             <control><group>[Channel1]</group><key>hotcue_7_activate</key><status>0x90</status><midino>0x18</midino></control>
             <control><group>[Channel1]</group><key>hotcue_8_activate</key><status>0x90</status><midino>0x1B</midino></control>
 
-            <!-- Pads (Shift layer = Hot Cue Clear) -->
             <control><group>[Channel1]</group><key>hotcue_1_clear</key><status>0x90</status><midino>0x55</midino></control>
             <control><group>[Channel1]</group><key>hotcue_2_clear</key><status>0x90</status><midino>0x56</midino></control>
             <control><group>[Channel1]</group><key>hotcue_3_clear</key><status>0x90</status><midino>0x57</midino></control>
@@ -38,31 +35,27 @@
             <control><group>[Channel1]</group><key>hotcue_7_clear</key><status>0x90</status><midino>0x5B</midino></control>
             <control><group>[Channel1]</group><key>hotcue_8_clear</key><status>0x90</status><midino>0x5C</midino></control>
 
-            <!-- Top buttons -->
-            <control><group>[Channel1]</group><key>keylock</key><status>0x90</status><midino>0x04</midino></control>
-            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel1]_enable</key><status>0x90</status><midino>0x01</midino></control>
-            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel1]_enable</key><status>0x90</status><midino>0x02</midino></control>
-            <control><group>[EffectRack1_EffectUnit3]</group><key>group_[Channel1]_enable</key><status>0x90</status><midino>0x03</midino></control>
-            <control><group>[Channel1]</group><key>pfl</key><status>0x90</status><midino>0x05</midino></control>
+            <!-- Toggles via script -->
+            <control><group>[Channel1]</group><key>GeminiSlate.keylockToggle</key><status>0x90</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx1Deck1</key><status>0x90</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx2Deck1</key><status>0x90</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.fx3Deck1</key><status>0x90</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.pflToggle</key><status>0x90</status><midino>0x05</midino><options><Script-Binding/></options></control>
 
-            <!-- Loops -->
             <control><group>[Channel1]</group><key>loop_in</key><status>0x90</status><midino>0x3C</midino></control>
             <control><group>[Channel1]</group><key>loop_out</key><status>0x90</status><midino>0x3E</midino></control>
             <control><group>[Channel1]</group><key>reloop_toggle</key><status>0x90</status><midino>0x3D</midino></control>
             <control><group>[Channel1]</group><key>loop_halve</key><status>0x90</status><midino>0x3F</midino></control>
 
-            <!-- Transport -->
             <control><group>[Channel1]</group><key>cue_default</key><status>0x90</status><midino>0x39</midino></control>
-            <control><group>[Channel1]</group><key>play</key><status>0x90</status><midino>0x38</midino></control>
+            <control><group>[Channel1]</group><key>GeminiSlate.playToggle</key><status>0x90</status><midino>0x38</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>beatsync</key><status>0x90</status><midino>0x54</midino></control>
 
-            <!-- Jog (script handled) -->
             <control><group>[Channel1]</group><key>GeminiSlate.wheelTouch</key><status>0x90</status><midino>0x41</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>GeminiSlate.wheelTurn</key><status>0xB0</status><midino>0x04</midino><options><Script-Binding/></options></control>
 
-            <!-- Pitch / pregain (script handled, bipolar) -->
             <control><group>[Channel1]</group><key>GeminiSlate.rate</key><status>0xB0</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel1]</group><key>pregain</key><status>0xB0</status><midino>0x08</midino></control>
+            <control><group>[Channel1]</group><key>pregain</key><status>0xB0</status><midino>0x08</midino><options><Soft-takeover/></options></control>
 
             <!-- ====================================================== -->
             <!-- DECK 2  -  status 0x91 / 0xB1                          -->
@@ -88,11 +81,11 @@
             <control><group>[Channel2]</group><key>hotcue_7_clear</key><status>0x91</status><midino>0x5B</midino></control>
             <control><group>[Channel2]</group><key>hotcue_8_clear</key><status>0x91</status><midino>0x5C</midino></control>
 
-            <control><group>[Channel2]</group><key>keylock</key><status>0x91</status><midino>0x04</midino></control>
-            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel2]_enable</key><status>0x91</status><midino>0x01</midino></control>
-            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel2]_enable</key><status>0x91</status><midino>0x02</midino></control>
-            <control><group>[EffectRack1_EffectUnit3]</group><key>group_[Channel2]_enable</key><status>0x91</status><midino>0x03</midino></control>
-            <control><group>[Channel2]</group><key>pfl</key><status>0x91</status><midino>0x05</midino></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.keylockToggle</key><status>0x91</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx1Deck2</key><status>0x91</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx2Deck2</key><status>0x91</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.fx3Deck2</key><status>0x91</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.pflToggle</key><status>0x91</status><midino>0x05</midino><options><Script-Binding/></options></control>
 
             <control><group>[Channel2]</group><key>loop_in</key><status>0x91</status><midino>0x3C</midino></control>
             <control><group>[Channel2]</group><key>loop_out</key><status>0x91</status><midino>0x3E</midino></control>
@@ -100,14 +93,14 @@
             <control><group>[Channel2]</group><key>loop_halve</key><status>0x91</status><midino>0x3F</midino></control>
 
             <control><group>[Channel2]</group><key>cue_default</key><status>0x91</status><midino>0x39</midino></control>
-            <control><group>[Channel2]</group><key>play</key><status>0x91</status><midino>0x38</midino></control>
+            <control><group>[Channel2]</group><key>GeminiSlate.playToggle</key><status>0x91</status><midino>0x38</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>beatsync</key><status>0x91</status><midino>0x54</midino></control>
 
             <control><group>[Channel2]</group><key>GeminiSlate.wheelTouch</key><status>0x91</status><midino>0x41</midino><options><Script-Binding/></options></control>
             <control><group>[Channel2]</group><key>GeminiSlate.wheelTurn</key><status>0xB1</status><midino>0x04</midino><options><Script-Binding/></options></control>
 
             <control><group>[Channel2]</group><key>GeminiSlate.rate</key><status>0xB1</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel2]</group><key>pregain</key><status>0xB1</status><midino>0x08</midino></control>
+            <control><group>[Channel2]</group><key>pregain</key><status>0xB1</status><midino>0x08</midino><options><Soft-takeover/></options></control>
 
             <!-- ====================================================== -->
             <!-- DECK 3  -  status 0x92 / 0xB2                          -->
@@ -133,11 +126,11 @@
             <control><group>[Channel3]</group><key>hotcue_7_clear</key><status>0x92</status><midino>0x5B</midino></control>
             <control><group>[Channel3]</group><key>hotcue_8_clear</key><status>0x92</status><midino>0x5C</midino></control>
 
-            <control><group>[Channel3]</group><key>keylock</key><status>0x92</status><midino>0x04</midino></control>
-            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel3]_enable</key><status>0x92</status><midino>0x01</midino></control>
-            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel3]_enable</key><status>0x92</status><midino>0x02</midino></control>
-            <control><group>[EffectRack1_EffectUnit3]</group><key>group_[Channel3]_enable</key><status>0x92</status><midino>0x03</midino></control>
-            <control><group>[Channel3]</group><key>pfl</key><status>0x92</status><midino>0x05</midino></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.keylockToggle</key><status>0x92</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx1Deck3</key><status>0x92</status><midino>0x01</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx2Deck3</key><status>0x92</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.fx3Deck3</key><status>0x92</status><midino>0x03</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.pflToggle</key><status>0x92</status><midino>0x05</midino><options><Script-Binding/></options></control>
 
             <control><group>[Channel3]</group><key>loop_in</key><status>0x92</status><midino>0x3C</midino></control>
             <control><group>[Channel3]</group><key>loop_out</key><status>0x92</status><midino>0x3E</midino></control>
@@ -145,18 +138,17 @@
             <control><group>[Channel3]</group><key>loop_halve</key><status>0x92</status><midino>0x3F</midino></control>
 
             <control><group>[Channel3]</group><key>cue_default</key><status>0x92</status><midino>0x39</midino></control>
-            <control><group>[Channel3]</group><key>play</key><status>0x92</status><midino>0x38</midino></control>
+            <control><group>[Channel3]</group><key>GeminiSlate.playToggle</key><status>0x92</status><midino>0x38</midino><options><Script-Binding/></options></control>
             <control><group>[Channel3]</group><key>beatsync</key><status>0x92</status><midino>0x54</midino></control>
 
             <control><group>[Channel3]</group><key>GeminiSlate.wheelTouch</key><status>0x92</status><midino>0x41</midino><options><Script-Binding/></options></control>
             <control><group>[Channel3]</group><key>GeminiSlate.wheelTurn</key><status>0xB2</status><midino>0x04</midino><options><Script-Binding/></options></control>
 
             <control><group>[Channel3]</group><key>GeminiSlate.rate</key><status>0xB2</status><midino>0x07</midino><options><Script-Binding/></options></control>
-            <control><group>[Channel3]</group><key>pregain</key><status>0xB2</status><midino>0x08</midino></control>
+            <control><group>[Channel3]</group><key>pregain</key><status>0xB2</status><midino>0x08</midino><options><Soft-takeover/></options></control>
 
             <!-- ====================================================== -->
             <!-- DECK 4  -  status 0x93 / 0xB3 (shares ch4 with global) -->
-            <!-- We avoid notes/CCs already used by global on ch4.       -->
             <!-- ====================================================== -->
 
             <control><group>[Channel4]</group><key>GeminiSlate.shift</key><status>0x93</status><midino>0x37</midino><options><Script-Binding/></options></control>
@@ -179,9 +171,9 @@
             <control><group>[Channel4]</group><key>hotcue_7_clear</key><status>0x93</status><midino>0x5B</midino></control>
             <control><group>[Channel4]</group><key>hotcue_8_clear</key><status>0x93</status><midino>0x5C</midino></control>
 
-            <control><group>[Channel4]</group><key>keylock</key><status>0x93</status><midino>0x04</midino></control>
-            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel4]_enable</key><status>0x93</status><midino>0x02</midino></control>
-            <control><group>[Channel4]</group><key>pfl</key><status>0x93</status><midino>0x05</midino></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.keylockToggle</key><status>0x93</status><midino>0x04</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.fx2Deck4</key><status>0x93</status><midino>0x02</midino><options><Script-Binding/></options></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.pflToggle</key><status>0x93</status><midino>0x05</midino><options><Script-Binding/></options></control>
 
             <control><group>[Channel4]</group><key>loop_in</key><status>0x93</status><midino>0x3C</midino></control>
             <control><group>[Channel4]</group><key>loop_out</key><status>0x93</status><midino>0x3E</midino></control>
@@ -189,7 +181,7 @@
             <control><group>[Channel4]</group><key>loop_halve</key><status>0x93</status><midino>0x3F</midino></control>
 
             <control><group>[Channel4]</group><key>cue_default</key><status>0x93</status><midino>0x39</midino></control>
-            <control><group>[Channel4]</group><key>play</key><status>0x93</status><midino>0x38</midino></control>
+            <control><group>[Channel4]</group><key>GeminiSlate.playToggle</key><status>0x93</status><midino>0x38</midino><options><Script-Binding/></options></control>
             <control><group>[Channel4]</group><key>beatsync</key><status>0x93</status><midino>0x54</midino></control>
 
             <control><group>[Channel4]</group><key>GeminiSlate.wheelTouch</key><status>0x93</status><midino>0x41</midino><options><Script-Binding/></options></control>
@@ -198,42 +190,41 @@
             <!-- GLOBAL  -  status 0x93 / 0xB3 (channel 4)              -->
             <!-- ====================================================== -->
 
-            <!-- Central PAD MODE / browse / load -->
             <control><group>[Master]</group><key>GeminiSlate.padModeButton</key><status>0x93</status><midino>0x0D</midino><options><Script-Binding/></options></control>
-            <control><group>[Library]</group><key>MoveFocusBackward</key><status>0x93</status><midino>0x07</midino></control>
+            <control><group>[Library]</group><key>GeminiSlate.browseBack</key><status>0x93</status><midino>0x07</midino><options><Script-Binding/></options></control>
             <control><group>[Channel1]</group><key>LoadSelectedTrack</key><status>0x93</status><midino>0x03</midino></control>
             <control><group>[Channel3]</group><key>LoadSelectedTrack</key><status>0x93</status><midino>0x01</midino></control>
 
-            <!-- Mixer (direct bindings, range 0..1) -->
-            <control><group>[Channel1]</group><key>volume</key><status>0xB3</status><midino>0x07</midino></control>
-            <control><group>[QuickEffectRack1_[Channel1]]</group><key>super1</key><status>0xB3</status><midino>0x0B</midino></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x0F</midino></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x13</midino></control>
-            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x17</midino></control>
+            <!-- Mixer (direct bindings with Soft-takeover) -->
+            <control><group>[Channel1]</group><key>volume</key><status>0xB3</status><midino>0x07</midino><options><Soft-takeover/></options></control>
+            <control><group>[QuickEffectRack1_[Channel1]]</group><key>super1</key><status>0xB3</status><midino>0x0B</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x0F</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x13</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x17</midino><options><Soft-takeover/></options></control>
 
-            <control><group>[Channel2]</group><key>volume</key><status>0xB3</status><midino>0x08</midino></control>
-            <control><group>[QuickEffectRack1_[Channel2]]</group><key>super1</key><status>0xB3</status><midino>0x0C</midino></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x10</midino></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x14</midino></control>
-            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x18</midino></control>
+            <control><group>[Channel2]</group><key>volume</key><status>0xB3</status><midino>0x08</midino><options><Soft-takeover/></options></control>
+            <control><group>[QuickEffectRack1_[Channel2]]</group><key>super1</key><status>0xB3</status><midino>0x0C</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x10</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x14</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x18</midino><options><Soft-takeover/></options></control>
 
-            <control><group>[Channel3]</group><key>volume</key><status>0xB3</status><midino>0x09</midino></control>
-            <control><group>[QuickEffectRack1_[Channel3]]</group><key>super1</key><status>0xB3</status><midino>0x0E</midino></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x11</midino></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x15</midino></control>
-            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x19</midino></control>
+            <control><group>[Channel3]</group><key>volume</key><status>0xB3</status><midino>0x09</midino><options><Soft-takeover/></options></control>
+            <control><group>[QuickEffectRack1_[Channel3]]</group><key>super1</key><status>0xB3</status><midino>0x0E</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x11</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x15</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x19</midino><options><Soft-takeover/></options></control>
 
-            <control><group>[Channel4]</group><key>volume</key><status>0xB3</status><midino>0x0A</midino></control>
-            <control><group>[QuickEffectRack1_[Channel4]]</group><key>super1</key><status>0xB3</status><midino>0x12</midino></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x16</midino></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x1A</midino></control>
-            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x1C</midino></control>
+            <control><group>[Channel4]</group><key>volume</key><status>0xB3</status><midino>0x0A</midino><options><Soft-takeover/></options></control>
+            <control><group>[QuickEffectRack1_[Channel4]]</group><key>super1</key><status>0xB3</status><midino>0x12</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x16</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x1A</midino><options><Soft-takeover/></options></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x1C</midino><options><Soft-takeover/></options></control>
 
             <!-- Crossfader (script handled, bipolar) -->
             <control><group>[Master]</group><key>GeminiSlate.crossfader</key><status>0xB3</status><midino>0x1B</midino><options><Script-Binding/></options></control>
 
-            <!-- Browse encoder (relative, centered on 0x40) -->
-            <control><group>[Library]</group><key>MoveVertical</key><status>0xB3</status><midino>0x1E</midino><options><SelectKnob/></options></control>
+            <!-- Browse encoder (script handled, relative centered on 0x40) -->
+            <control><group>[Library]</group><key>GeminiSlate.browseTurn</key><status>0xB3</status><midino>0x1E</midino><options><Script-Binding/></options></control>
 
         </controls>
     </controller>

@@ -1,10 +1,11 @@
 // Gemini Slate 4 / Gemini Serato Slate 4 controller script for Mixxx 2.4+.
-// Direct XML bindings handle most controls. This script only manages:
+// Direct XML bindings handle most controls. This script handles:
 //   - Pitch range setup on init
 //   - Shift / Pad-mode state
 //   - Jog wheel scratching
 //   - Bipolar pitch fader scaling
 //   - Bipolar crossfader scaling
+//   - Toggle buttons (play, keylock, pfl, FX enable) via script.toggleControl
 
 // eslint-disable-next-line no-var
 var GeminiSlate = {};
@@ -100,4 +101,54 @@ GeminiSlate.rate = function(_channel, _control, value, _status, group) {
 
 GeminiSlate.crossfader = function(_channel, _control, value, _status, _group) {
     engine.setValue("[Master]", "crossfader", (GeminiSlate.normalized(value) * 2) - 1);
+};
+
+// ----- Toggle buttons (only act on press) -------------------------------
+
+GeminiSlate.playToggle = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    script.toggleControl(group, "play");
+};
+
+GeminiSlate.keylockToggle = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    script.toggleControl(group, "keylock");
+};
+
+GeminiSlate.pflToggle = function(_channel, _control, value, status, group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    script.toggleControl(group, "pfl");
+};
+
+GeminiSlate.fxToggleFor = function(unit, deck, value, status) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    script.toggleControl(
+        "[EffectRack1_EffectUnit" + unit + "]",
+        "group_[Channel" + deck + "]_enable"
+    );
+};
+
+GeminiSlate.fx1Deck1 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(1, 1, v, s); };
+GeminiSlate.fx2Deck1 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2, 1, v, s); };
+GeminiSlate.fx3Deck1 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(3, 1, v, s); };
+GeminiSlate.fx1Deck2 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(1, 2, v, s); };
+GeminiSlate.fx2Deck2 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2, 2, v, s); };
+GeminiSlate.fx3Deck2 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(3, 2, v, s); };
+GeminiSlate.fx1Deck3 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(1, 3, v, s); };
+GeminiSlate.fx2Deck3 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2, 3, v, s); };
+GeminiSlate.fx3Deck3 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(3, 3, v, s); };
+GeminiSlate.fx2Deck4 = function(_c, _ctrl, v, s, _g) { GeminiSlate.fxToggleFor(2, 4, v, s); };
+
+// ----- Library browse ---------------------------------------------------
+
+GeminiSlate.browseTurn = function(_channel, _control, value, _status, _group) {
+    var delta = GeminiSlate.relativeValue(value);
+    if (delta !== 0) {
+        engine.setValue("[Library]", "MoveVertical", delta);
+    }
+};
+
+GeminiSlate.browseBack = function(_channel, _control, value, status, _group) {
+    if (!GeminiSlate.isPressed(value, status)) { return; }
+    engine.setValue("[Library]", "MoveFocusBackward", 1);
 };
