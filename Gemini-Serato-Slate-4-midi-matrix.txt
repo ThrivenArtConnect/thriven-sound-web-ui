@@ -1,0 +1,114 @@
+Button | STATUS | midino | Channel | Mixxx Group | Mixxx Key
+Deck 1 Shift | 0x91 | 0x37 | 2 | [Channel1] | GeminiSlate.shift
+Deck 1 Jog Touch | 0x91 | 0x41 | 2 | [Channel1] | GeminiSlate.wheelTouch
+Deck 1 Jog Turn | 0xB1 | 0x04 | 2 | [Channel1] | GeminiSlate.wheelTurn
+Deck 1 Rate Fader | 0xB1 | 0x01 | 2 | [Channel1] | GeminiSlate.rate
+Deck 1 Volume Fader | 0xB1 | 0x07 | 2 | [Channel1] | GeminiSlate.volume
+Deck 1 Pregain | 0xB1 | 0x0B | 2 | [Channel1] | GeminiSlate.pregain
+Deck 1 Filter | 0xB1 | 0x14 | 2 | [Channel1] | GeminiSlate.filter
+Deck 1 EQ High | 0xB1 | 0x0F | 2 | [EqualizerRack1_[Channel1]_Effect1] | parameter3
+Deck 1 EQ Mid | 0xB1 | 0x13 | 2 | [EqualizerRack1_[Channel1]_Effect1] | parameter2
+Deck 1 EQ Low | 0xB1 | 0x17 | 2 | [EqualizerRack1_[Channel1]_Effect1] | parameter1
+Deck 1 Play | 0x91 | 0x3B | 2 | [Channel1] | GeminiSlate.playButton
+Deck 1 Cue | 0x91 | 0x3D | 2 | [Channel1] | GeminiSlate.cueButton
+Deck 1 Sync | 0x91 | 0x3F | 2 | [Channel1] | GeminiSlate.syncButton
+Deck 1 Load | 0x91 | 0x40 | 2 | [Channel1] | GeminiSlate.loadButton
+Deck 1 PFL | 0x91 | 0x05 | 2 | [Channel1] | GeminiSlate.pflButton
+Deck 1 Reverse | 0x91 | 0x54 | 2 | [Channel1] | GeminiSlate.reverseButton
+Deck 1 Pad Mode HotCue | 0x91 | 0x55 | 2 | [Channel1] | GeminiSlate.padMode
+Deck 1 Pad Mode Loop | 0x91 | 0x56 | 2 | [Channel1] | GeminiSlate.padMode
+Deck 1 Pad Mode Sampler | 0x91 | 0x57 | 2 | [Channel1] | GeminiSlate.padMode
+Deck 1 Pad 1 | 0x91 | 0x06 | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 2 | 0x91 | 0x09 | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 3 | 0x91 | 0x0C | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 4 | 0x91 | 0x0F | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 5 | 0x91 | 0x12 | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 6 | 0x91 | 0x15 | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 7 | 0x91 | 0x18 | 2 | [Channel1] | GeminiSlate.pad
+Deck 1 Pad 8 | 0x91 | 0x1B | 2 | [Channel1] | GeminiSlate.pad
+Deck 2 Shift | 0x94 | 0x37 | 5 | [Channel2] | GeminiSlate.shift
+Deck 2 Jog Touch | 0x94 | 0x41 | 5 | [Channel2] | GeminiSlate.wheelTouch
+Deck 2 Jog Turn | 0xB4 | 0x04 | 5 | [Channel2] | GeminiSlate.wheelTurn
+Deck 2 Rate Fader | 0xB4 | 0x01 | 5 | [Channel2] | GeminiSlate.rate
+Deck 2 Volume Fader | 0xB4 | 0x07 | 5 | [Channel2] | GeminiSlate.volume
+Deck 2 Pregain | 0xB4 | 0x0B | 5 | [Channel2] | GeminiSlate.pregain
+Deck 2 Filter | 0xB4 | 0x14 | 5 | [Channel2] | GeminiSlate.filter
+Deck 2 EQ High | 0xB4 | 0x0F | 5 | [EqualizerRack1_[Channel2]_Effect1] | parameter3
+Deck 2 EQ Mid | 0xB4 | 0x13 | 5 | [EqualizerRack1_[Channel2]_Effect1] | parameter2
+Deck 2 EQ Low | 0xB4 | 0x17 | 5 | [EqualizerRack1_[Channel2]_Effect1] | parameter1
+Deck 2 Play | 0x94 | 0x3B | 5 | [Channel2] | GeminiSlate.playButton
+Deck 2 Cue | 0x94 | 0x3D | 5 | [Channel2] | GeminiSlate.cueButton
+Deck 2 Sync | 0x94 | 0x3F | 5 | [Channel2] | GeminiSlate.syncButton
+Deck 2 Load | 0x94 | 0x40 | 5 | [Channel2] | GeminiSlate.loadButton
+Deck 2 PFL | 0x94 | 0x05 | 5 | [Channel2] | GeminiSlate.pflButton
+Deck 2 Reverse | 0x94 | 0x54 | 5 | [Channel2] | GeminiSlate.reverseButton
+Deck 2 Pad Mode HotCue | 0x94 | 0x55 | 5 | [Channel2] | GeminiSlate.padMode
+Deck 2 Pad Mode Loop | 0x94 | 0x56 | 5 | [Channel2] | GeminiSlate.padMode
+Deck 2 Pad Mode Sampler | 0x94 | 0x57 | 5 | [Channel2] | GeminiSlate.padMode
+Deck 2 Pad 1 | 0x94 | 0x08 | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 2 | 0x94 | 0x0B | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 3 | 0x94 | 0x0E | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 4 | 0x94 | 0x11 | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 5 | 0x94 | 0x14 | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 6 | 0x94 | 0x17 | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 7 | 0x94 | 0x1A | 5 | [Channel2] | GeminiSlate.pad
+Deck 2 Pad 8 | 0x94 | 0x1D | 5 | [Channel2] | GeminiSlate.pad
+Deck 3 Shift | 0x93 | 0x37 | 4 | [Channel3] | GeminiSlate.shift
+Deck 3 Jog Touch | 0x93 | 0x41 | 4 | [Channel3] | GeminiSlate.wheelTouch
+Deck 3 Jog Turn | 0xB3 | 0x04 | 4 | [Channel3] | GeminiSlate.wheelTurn
+Deck 3 Rate Fader | 0xB3 | 0x01 | 4 | [Channel3] | GeminiSlate.rate
+Deck 3 Volume Fader | 0xB3 | 0x07 | 4 | [Channel3] | GeminiSlate.volume
+Deck 3 Pregain | 0xB3 | 0x0B | 4 | [Channel3] | GeminiSlate.pregain
+Deck 3 Filter | 0xB3 | 0x14 | 4 | [Channel3] | GeminiSlate.filter
+Deck 3 EQ High | 0xB3 | 0x0F | 4 | [EqualizerRack1_[Channel3]_Effect1] | parameter3
+Deck 3 EQ Mid | 0xB3 | 0x13 | 4 | [EqualizerRack1_[Channel3]_Effect1] | parameter2
+Deck 3 EQ Low | 0xB3 | 0x17 | 4 | [EqualizerRack1_[Channel3]_Effect1] | parameter1
+Deck 3 Play | 0x93 | 0x3B | 4 | [Channel3] | GeminiSlate.playButton
+Deck 3 Cue | 0x93 | 0x3D | 4 | [Channel3] | GeminiSlate.cueButton
+Deck 3 Sync | 0x93 | 0x3F | 4 | [Channel3] | GeminiSlate.syncButton
+Deck 3 Load | 0x93 | 0x40 | 4 | [Channel3] | GeminiSlate.loadButton
+Deck 3 PFL | 0x93 | 0x05 | 4 | [Channel3] | GeminiSlate.pflButton
+Deck 3 Reverse | 0x93 | 0x54 | 4 | [Channel3] | GeminiSlate.reverseButton
+Deck 3 Pad Mode HotCue | 0x93 | 0x55 | 4 | [Channel3] | GeminiSlate.padMode
+Deck 3 Pad Mode Loop | 0x93 | 0x56 | 4 | [Channel3] | GeminiSlate.padMode
+Deck 3 Pad Mode Sampler | 0x93 | 0x57 | 4 | [Channel3] | GeminiSlate.padMode
+Deck 3 Pad 1 | 0x93 | 0x06 | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 2 | 0x93 | 0x09 | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 3 | 0x93 | 0x0C | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 4 | 0x93 | 0x0F | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 5 | 0x93 | 0x12 | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 6 | 0x93 | 0x15 | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 7 | 0x93 | 0x18 | 4 | [Channel3] | GeminiSlate.pad
+Deck 3 Pad 8 | 0x93 | 0x1B | 4 | [Channel3] | GeminiSlate.pad
+Deck 4 Shift | 0x95 | 0x37 | 6 | [Channel4] | GeminiSlate.shift
+Deck 4 Jog Touch | 0x95 | 0x41 | 6 | [Channel4] | GeminiSlate.wheelTouch
+Deck 4 Jog Turn | 0xB5 | 0x04 | 6 | [Channel4] | GeminiSlate.wheelTurn
+Deck 4 Rate Fader | 0xB5 | 0x01 | 6 | [Channel4] | GeminiSlate.rate
+Deck 4 Volume Fader | 0xB5 | 0x07 | 6 | [Channel4] | GeminiSlate.volume
+Deck 4 Pregain | 0xB5 | 0x0B | 6 | [Channel4] | GeminiSlate.pregain
+Deck 4 Filter | 0xB5 | 0x14 | 6 | [Channel4] | GeminiSlate.filter
+Deck 4 EQ High | 0xB5 | 0x0F | 6 | [EqualizerRack1_[Channel4]_Effect1] | parameter3
+Deck 4 EQ Mid | 0xB5 | 0x13 | 6 | [EqualizerRack1_[Channel4]_Effect1] | parameter2
+Deck 4 EQ Low | 0xB5 | 0x17 | 6 | [EqualizerRack1_[Channel4]_Effect1] | parameter1
+Deck 4 Play | 0x95 | 0x3B | 6 | [Channel4] | GeminiSlate.playButton
+Deck 4 Cue | 0x95 | 0x3D | 6 | [Channel4] | GeminiSlate.cueButton
+Deck 4 Sync | 0x95 | 0x3F | 6 | [Channel4] | GeminiSlate.syncButton
+Deck 4 Load | 0x95 | 0x40 | 6 | [Channel4] | GeminiSlate.loadButton
+Deck 4 PFL | 0x95 | 0x05 | 6 | [Channel4] | GeminiSlate.pflButton
+Deck 4 Reverse | 0x95 | 0x54 | 6 | [Channel4] | GeminiSlate.reverseButton
+Deck 4 Pad Mode HotCue | 0x95 | 0x55 | 6 | [Channel4] | GeminiSlate.padMode
+Deck 4 Pad Mode Loop | 0x95 | 0x56 | 6 | [Channel4] | GeminiSlate.padMode
+Deck 4 Pad Mode Sampler | 0x95 | 0x57 | 6 | [Channel4] | GeminiSlate.padMode
+Deck 4 Pad 1 | 0x95 | 0x06 | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 2 | 0x95 | 0x09 | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 3 | 0x95 | 0x0C | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 4 | 0x95 | 0x0F | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 5 | 0x95 | 0x12 | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 6 | 0x95 | 0x15 | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 7 | 0x95 | 0x18 | 6 | [Channel4] | GeminiSlate.pad
+Deck 4 Pad 8 | 0x95 | 0x1B | 6 | [Channel4] | GeminiSlate.pad
+Deck 3/4 Switch | 0x93 | 0x0D | 4 | [Master] | GeminiSlate.deckSwitch
+Crossfader | 0xB3 | 0x08 | 4 | [Master] | GeminiSlate.crossfader
+Head Mix | 0xB3 | 0x0C | 4 | [Master] | GeminiSlate.headMix
+Browse Encoder | 0xB3 | 0x1E | 4 | [Library] | GeminiSlate.browseTurn
+Browse Push | 0x93 | 0x09 | 4 | [Library] | GeminiSlate.browsePush
