@@ -5,7 +5,7 @@
         <author>Cursor AI</author>
         <description>Four deck MIDI mapping for Gemini Slate 4 on Mixxx 2.4+ with script-driven jog wheels, shift layers, pad modes, and deck 3/4 switching.</description>
     </info>
-    <controller id="Gemini Slate 4">
+    <controller id="SLATE4">
         <scriptfiles>
             <file filename="Gemini-Serato-Slate-script.js" functionprefix="GeminiSlate"/>
         </scriptfiles>
