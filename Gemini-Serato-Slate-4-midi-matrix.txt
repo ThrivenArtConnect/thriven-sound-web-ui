@@ -1,86 +1,69 @@
-Gemini Slate 4 — MIDI Matrix (auf Basis von MIDI-OX Log mit Deck 1 auf MIDI-Kanal 1)
+Gemini Slate 4 — finale MIDI-Matrix (Mixxx 2.4+, basierend auf MIDI-OX Log)
 
 Konvention:
 - Deck 1 = MIDI Channel 1 (Status 0x90 / 0xB0)
 - Deck 2 = MIDI Channel 2 (Status 0x91 / 0xB1)
 - Deck 3 = MIDI Channel 3 (Status 0x92 / 0xB2)
-- Deck 4 = MIDI Channel 4 (Status 0x93 / 0xB3)  - kollidiert ggf. mit Globals; siehe unten
+- Deck 4 = MIDI Channel 4 (Status 0x93 / 0xB3) - teilt Channel mit Globals
 - Global = MIDI Channel 4 (Status 0x93 / 0xB3) für PAD MODE / Mixer / Browse
 
-Pro Deck (Status nur fuer Deck 1 angegeben; Decks 2/3/4 analog mit Status 0x91/0x92/0x93 bzw. 0xB1/0xB2/0xB3):
+Pro Deck (Status fuer Deck 1 angegeben; Decks 2/3/4 analog mit 0x91/0x92/0x93 bzw. 0xB1/0xB2/0xB3):
 
-Button / Control       | Status (Deck 1) | midino | Mixxx Group   | Skript / Mixxx Key
-Shift (lokal)          | 0x90            | 0x37   | [Channel1]    | GeminiSlate.shift
-Pad 1 (HotCue)         | 0x90            | 0x06   | [Channel1]    | GeminiSlate.padHotcue
-Pad 2 (HotCue)         | 0x90            | 0x09   | [Channel1]    | GeminiSlate.padHotcue
-Pad 3 (HotCue)         | 0x90            | 0x0C   | [Channel1]    | GeminiSlate.padHotcue
-Pad 4 (HotCue)         | 0x90            | 0x0F   | [Channel1]    | GeminiSlate.padHotcue
-Pad 5 (HotCue)         | 0x90            | 0x12   | [Channel1]    | GeminiSlate.padHotcue
-Pad 6 (HotCue)         | 0x90            | 0x15   | [Channel1]    | GeminiSlate.padHotcue
-Pad 7 (HotCue)         | 0x90            | 0x18   | [Channel1]    | GeminiSlate.padHotcue
-Pad 8 (HotCue)         | 0x90            | 0x1B   | [Channel1]    | GeminiSlate.padHotcue
-Pad 1 (Sampler/Shift)  | 0x90            | 0x55   | [Channel1]    | GeminiSlate.padSampler
-Pad 2 (Sampler/Shift)  | 0x90            | 0x56   | [Channel1]    | GeminiSlate.padSampler
-Pad 3 (Sampler/Shift)  | 0x90            | 0x57   | [Channel1]    | GeminiSlate.padSampler
-Pad 4 (Sampler/Shift)  | 0x90            | 0x58   | [Channel1]    | GeminiSlate.padSampler
-Pad 5 (Sampler/Shift)  | 0x90            | 0x59   | [Channel1]    | GeminiSlate.padSampler
-Pad 6 (Sampler/Shift)  | 0x90            | 0x5A   | [Channel1]    | GeminiSlate.padSampler
-Pad 7 (Sampler/Shift)  | 0x90            | 0x5B   | [Channel1]    | GeminiSlate.padSampler
-Pad 8 (Sampler/Shift)  | 0x90            | 0x5C   | [Channel1]    | GeminiSlate.padSampler
-KEY LOCK               | 0x90            | 0x04   | [Channel1]    | GeminiSlate.keyLock
-FX1                    | 0x90            | 0x01   | [Channel1]    | GeminiSlate.fx1
-FX2                    | 0x90            | 0x02   | [Channel1]    | GeminiSlate.fx2
-FX3                    | 0x90            | 0x03   | [Channel1]    | GeminiSlate.fx3
-PFL / Headphone Cue    | 0x90            | 0x05   | [Channel1]    | GeminiSlate.pflButton
-LOOP IN                | 0x90            | 0x3C   | [Channel1]    | GeminiSlate.loopIn
-LOOP OUT               | 0x90            | 0x3E   | [Channel1]    | GeminiSlate.loopOut
-LOOP EXIT/Reloop       | 0x90            | 0x3D   | [Channel1]    | GeminiSlate.loopExit
-LOOP 1/2X              | 0x90            | 0x3F   | [Channel1]    | GeminiSlate.loopHalve
-CUE                    | 0x90            | 0x39   | [Channel1]    | GeminiSlate.cueButton
-PLAY/PAUSE             | 0x90            | 0x38   | [Channel1]    | GeminiSlate.playButton
-SYNC                   | 0x90            | 0x54   | [Channel1]    | GeminiSlate.syncButton
-Jog Touch              | 0x90            | 0x41   | [Channel1]    | GeminiSlate.wheelTouch
-Jog Turn               | 0xB0            | 0x04   | [Channel1]    | GeminiSlate.wheelTurn
-Pitch / Rate Fader     | 0xB0            | 0x07   | [Channel1]    | GeminiSlate.rate
-Pregain (optional)     | 0xB0            | 0x08   | [Channel1]    | GeminiSlate.pregain
+Funktion                  | Status | midino | Mixxx Group / Key
+Local Shift               | 0x90   | 0x37   | GeminiSlate.shift (Script)
+Pad 1 (Hot Cue)           | 0x90   | 0x06   | [Channel1] hotcue_1_activate
+Pad 2 (Hot Cue)           | 0x90   | 0x09   | [Channel1] hotcue_2_activate
+Pad 3 (Hot Cue)           | 0x90   | 0x0C   | [Channel1] hotcue_3_activate
+Pad 4 (Hot Cue)           | 0x90   | 0x0F   | [Channel1] hotcue_4_activate
+Pad 5 (Hot Cue)           | 0x90   | 0x12   | [Channel1] hotcue_5_activate
+Pad 6 (Hot Cue)           | 0x90   | 0x15   | [Channel1] hotcue_6_activate
+Pad 7 (Hot Cue)           | 0x90   | 0x18   | [Channel1] hotcue_7_activate
+Pad 8 (Hot Cue)           | 0x90   | 0x1B   | [Channel1] hotcue_8_activate
+Pad 1 (Shift = Clear)     | 0x90   | 0x55   | [Channel1] hotcue_1_clear
+Pad 2 (Shift = Clear)     | 0x90   | 0x56   | [Channel1] hotcue_2_clear
+Pad 3 (Shift = Clear)     | 0x90   | 0x57   | [Channel1] hotcue_3_clear
+Pad 4 (Shift = Clear)     | 0x90   | 0x58   | [Channel1] hotcue_4_clear
+Pad 5 (Shift = Clear)     | 0x90   | 0x59   | [Channel1] hotcue_5_clear
+Pad 6 (Shift = Clear)     | 0x90   | 0x5A   | [Channel1] hotcue_6_clear
+Pad 7 (Shift = Clear)     | 0x90   | 0x5B   | [Channel1] hotcue_7_clear
+Pad 8 (Shift = Clear)     | 0x90   | 0x5C   | [Channel1] hotcue_8_clear
+KEY LOCK                  | 0x90   | 0x04   | [Channel1] keylock
+FX1 (toggle)              | 0x90   | 0x01   | [EffectRack1_EffectUnit1] group_[Channel1]_enable
+FX2 (toggle)              | 0x90   | 0x02   | [EffectRack1_EffectUnit2] group_[Channel1]_enable
+FX3 (toggle)              | 0x90   | 0x03   | [EffectRack1_EffectUnit3] group_[Channel1]_enable
+PFL / Headphone Cue       | 0x90   | 0x05   | [Channel1] pfl
+LOOP IN                   | 0x90   | 0x3C   | [Channel1] loop_in
+LOOP OUT                  | 0x90   | 0x3E   | [Channel1] loop_out
+RELOOP / EXIT             | 0x90   | 0x3D   | [Channel1] reloop_toggle
+LOOP 1/2X                 | 0x90   | 0x3F   | [Channel1] loop_halve
+CUE                       | 0x90   | 0x39   | [Channel1] cue_default
+PLAY                      | 0x90   | 0x38   | [Channel1] play
+SYNC                      | 0x90   | 0x54   | [Channel1] beatsync
+Jog Touch                 | 0x90   | 0x41   | GeminiSlate.wheelTouch (Script)
+Jog Turn                  | 0xB0   | 0x04   | GeminiSlate.wheelTurn  (Script)
+Pitch / Rate Fader        | 0xB0   | 0x07   | GeminiSlate.rate       (Script, bipolar)
+Pregain                   | 0xB0   | 0x08   | [Channel1] pregain
 
-Globale Bedienelemente (immer Status 0x93 / 0xB3):
+Globale Bedienelemente (Status immer 0x93 / 0xB3):
 
-Button / Control       | Status | midino | Mixxx Group   | Skript / Mixxx Key
-PAD MODE (zentral)     | 0x93   | 0x0D   | [Master]      | GeminiSlate.padModeButton
-BACK (Browser)         | 0x93   | 0x07   | [Library]     | GeminiSlate.browseBack
-LOAD 1                 | 0x93   | 0x03   | [Channel1]    | GeminiSlate.loadButton
-LOAD 3                 | 0x93   | 0x01   | [Channel3]    | GeminiSlate.loadButton
+Funktion                  | Status | midino | Mixxx Group / Key
+PAD MODE (zentral)        | 0x93   | 0x0D   | GeminiSlate.padModeButton (Script)
+BACK (Browse)             | 0x93   | 0x07   | [Library] MoveFocusBackward
+LOAD 1                    | 0x93   | 0x03   | [Channel1] LoadSelectedTrack
+LOAD 3                    | 0x93   | 0x01   | [Channel3] LoadSelectedTrack
+Crossfader                | 0xB3   | 0x1B   | GeminiSlate.crossfader (Script, bipolar)
+Browse Encoder            | 0xB3   | 0x1E   | [Library] MoveVertical (SelectKnob)
 
-Mixer / Master         | Status | midino | Mixxx Group   | Skript / Mixxx Key
-Volume Deck 1          | 0xB3   | 0x07   | [Channel1]    | GeminiSlate.volume
-Filter Deck 1          | 0xB3   | 0x0B   | [Channel1]    | GeminiSlate.filter
-EQ High Deck 1         | 0xB3   | 0x0F   | [Channel1]    | GeminiSlate.eqHigh
-EQ Mid  Deck 1         | 0xB3   | 0x13   | [Channel1]    | GeminiSlate.eqMid
-EQ Low  Deck 1         | 0xB3   | 0x17   | [Channel1]    | GeminiSlate.eqLow
-Volume Deck 2          | 0xB3   | 0x08   | [Channel2]    | GeminiSlate.volume
-Filter Deck 2          | 0xB3   | 0x0C   | [Channel2]    | GeminiSlate.filter
-EQ High Deck 2         | 0xB3   | 0x10   | [Channel2]    | GeminiSlate.eqHigh
-EQ Mid  Deck 2         | 0xB3   | 0x14   | [Channel2]    | GeminiSlate.eqMid
-EQ Low  Deck 2         | 0xB3   | 0x18   | [Channel2]    | GeminiSlate.eqLow
-Volume Deck 3          | 0xB3   | 0x09   | [Channel3]    | GeminiSlate.volume
-Filter Deck 3          | 0xB3   | 0x0D   | [Channel3]    | GeminiSlate.filter
-EQ High Deck 3         | 0xB3   | 0x11   | [Channel3]    | GeminiSlate.eqHigh
-EQ Mid  Deck 3         | 0xB3   | 0x15   | [Channel3]    | GeminiSlate.eqMid
-EQ Low  Deck 3         | 0xB3   | 0x19   | [Channel3]    | GeminiSlate.eqLow
-Volume Deck 4          | 0xB3   | 0x0A   | [Channel4]    | GeminiSlate.volume
-Filter Deck 4          | 0xB3   | 0x0E   | [Channel4]    | GeminiSlate.filter
-EQ High Deck 4         | 0xB3   | 0x12   | [Channel4]    | GeminiSlate.eqHigh
-EQ Mid  Deck 4         | 0xB3   | 0x16   | [Channel4]    | GeminiSlate.eqMid
-EQ Low  Deck 4         | 0xB3   | 0x1A   | [Channel4]    | GeminiSlate.eqLow
-Crossfader             | 0xB3   | 0x1B   | [Master]      | GeminiSlate.crossfader
-Browse Encoder         | 0xB3   | 0x1E   | [Library]     | GeminiSlate.browseTurn
+Mixer (alles auf 0xB3, direkt gebunden, Range 0..1):
 
-Anmerkungen:
-- Belegung von 0x01..0x05 (FX1/FX2/FX3/KEY LOCK/PFL) und 0x38/0x39 (PLAY/CUE) basieren auf
-  dem typischen Layout, da im Log keine Beschriftung angegeben war. Bitte testen und
-  ggf. Notenzuordnung in der XML/JS tauschen, falls einzelne Tasten anders senden.
-- Decks 3/4 senden ggf. ueber DECK SEL physikalisch dieselben Notes wie Deck 1/2 auf
-  einem anderen MIDI-Channel. Falls dein Slate fuer Deck 3 wieder Channel 1 sendet,
-  einfach in der XML 0x92 -> 0x90 (und 0xB2 -> 0xB0) tauschen und die Pads im Skript
-  per Deck-Switch-Logik umrouten.
+Deck | Volume | Filter | EQ Hi | EQ Mid | EQ Low
+1    | 0x07   | 0x0B   | 0x0F  | 0x13   | 0x17
+2    | 0x08   | 0x0C   | 0x10  | 0x14   | 0x18
+3    | 0x09   | 0x0E   | 0x11  | 0x15   | 0x19
+4    | 0x0A   | 0x12   | 0x16  | 0x1A   | 0x1C
+
+Hinweise:
+- Buttons werden in Mixxx 2.4 ohne <options>-Block korrekt als Tasten interpretiert.
+- Dort wo bipolar (Pitch, Crossfader) oder Scratch noetig ist, wird Script genutzt.
+- Bei abweichenden Notennummern (PLAY/CUE/SYNC oder FX) einfach in der XML
+  die <midino>-Werte tauschen - das Skript bleibt unveraendert.
