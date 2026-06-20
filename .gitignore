@@ -4,7 +4,17 @@ exports/
 br864_ready/
 .DS_Store
 .env
--e 
+
 # Environment files
 *.env
 *.env.*
+
+# WAV-Dateien generell ignorieren (zu gross fuer Git)
+*.wav
+*.WAV
+
+# AUSNAHME: Sample-Projekte in devices/ duerfen WAVs committen
+!devices/zoom-mr8/sample-project/*.wav
+!devices/zoom-mr8/sample-project/*.WAV
+!devices/roland-br864/sample-project/*.wav
+!devices/roland-br864/sample-project/*.WAV
