@@ -1,0 +1,19 @@
+{
+  "device": "Boss BR-864",
+  "project_name": "sample-project",
+  "created_at": "2026-06-20T20:08:00+02:00",
+  "note": "Roland BR-864 Aufnahmen – WAV-Files lokal ablegen, nicht ins Repo committen. Ordnerstruktur folgt sobald Gerät verfügbar.",
+  "expected_files": [
+    "(WAV-Dateien des BR-864 Projekts hier eintragen)"
+  ],
+  "format": {
+    "sample_rate": 44100,
+    "bit_depth": 16,
+    "channels": "stereo"
+  },
+  "pipeline": {
+    "scan_command": "node bin/thriven scan --input devices/roland-br864/sample-project --pack-dir packs/br864-session-01",
+    "mcp_tool": "thriven_scan(\"devices/roland-br864/sample-project\")",
+    "target_pack_dir": "packs/br864-session-01"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "device": "Zoom MR-8",
+  "project_name": "sample-project",
+  "created_at": "2026-06-20T20:08:00+02:00",
+  "note": "Zoom MR-8 Aufnahmen – WAV-Files lokal ablegen, nicht ins Repo committen",
+  "expected_files": [
+    "mr80001.wav",
+    "mr80004.wav",
+    "mr80005.wav",
+    "mr80006.wav",
+    "mr80007.wav",
+    "mr80008.wav",
+    "mr80009.wav",
+    "mr80010.wav",
+    "mr80011.wav",
+    "mr80012.wav",
+    "mr80013.wav",
+    "mr80014.wav",
+    "mr80015.wav"
+  ],
+  "format": {
+    "sample_rate": 44100,
+    "bit_depth": 16,
+    "channels": "mono_or_stereo"
+  },
+  "pipeline": {
+    "scan_command": "node bin/thriven scan --input devices/zoom-mr8/sample-project --pack-dir packs/mr8-session-01",
+    "mcp_tool": "thriven_scan(\"devices/zoom-mr8/sample-project\")",
+    "target_pack_dir": "packs/mr8-session-01"
+  }
+}
