@@ -1,0 +1,69 @@
+Gemini Slate 4 — finale MIDI-Matrix (Mixxx 2.4+, basierend auf MIDI-OX Log)
+
+Konvention:
+- Deck 1 = MIDI Channel 1 (Status 0x90 / 0xB0)
+- Deck 2 = MIDI Channel 2 (Status 0x91 / 0xB1)
+- Deck 3 = MIDI Channel 3 (Status 0x92 / 0xB2)
+- Deck 4 = MIDI Channel 4 (Status 0x93 / 0xB3) - teilt Channel mit Globals
+- Global = MIDI Channel 4 (Status 0x93 / 0xB3) für PAD MODE / Mixer / Browse
+
+Pro Deck (Status fuer Deck 1 angegeben; Decks 2/3/4 analog mit 0x91/0x92/0x93 bzw. 0xB1/0xB2/0xB3):
+
+Funktion                  | Status | midino | Mixxx Group / Key
+Local Shift               | 0x90   | 0x37   | GeminiSlate.shift (Script)
+Pad 1 (Hot Cue)           | 0x90   | 0x06   | [Channel1] hotcue_1_activate
+Pad 2 (Hot Cue)           | 0x90   | 0x09   | [Channel1] hotcue_2_activate
+Pad 3 (Hot Cue)           | 0x90   | 0x0C   | [Channel1] hotcue_3_activate
+Pad 4 (Hot Cue)           | 0x90   | 0x0F   | [Channel1] hotcue_4_activate
+Pad 5 (Hot Cue)           | 0x90   | 0x12   | [Channel1] hotcue_5_activate
+Pad 6 (Hot Cue)           | 0x90   | 0x15   | [Channel1] hotcue_6_activate
+Pad 7 (Hot Cue)           | 0x90   | 0x18   | [Channel1] hotcue_7_activate
+Pad 8 (Hot Cue)           | 0x90   | 0x1B   | [Channel1] hotcue_8_activate
+Pad 1 (Shift = Clear)     | 0x90   | 0x55   | [Channel1] hotcue_1_clear
+Pad 2 (Shift = Clear)     | 0x90   | 0x56   | [Channel1] hotcue_2_clear
+Pad 3 (Shift = Clear)     | 0x90   | 0x57   | [Channel1] hotcue_3_clear
+Pad 4 (Shift = Clear)     | 0x90   | 0x58   | [Channel1] hotcue_4_clear
+Pad 5 (Shift = Clear)     | 0x90   | 0x59   | [Channel1] hotcue_5_clear
+Pad 6 (Shift = Clear)     | 0x90   | 0x5A   | [Channel1] hotcue_6_clear
+Pad 7 (Shift = Clear)     | 0x90   | 0x5B   | [Channel1] hotcue_7_clear
+Pad 8 (Shift = Clear)     | 0x90   | 0x5C   | [Channel1] hotcue_8_clear
+KEY LOCK                  | 0x90   | 0x04   | [Channel1] keylock
+FX1 (toggle)              | 0x90   | 0x01   | [EffectRack1_EffectUnit1] group_[Channel1]_enable
+FX2 (toggle)              | 0x90   | 0x02   | [EffectRack1_EffectUnit2] group_[Channel1]_enable
+FX3 (toggle)              | 0x90   | 0x03   | [EffectRack1_EffectUnit3] group_[Channel1]_enable
+PFL / Headphone Cue       | 0x90   | 0x05   | [Channel1] pfl
+LOOP IN                   | 0x90   | 0x3C   | [Channel1] loop_in
+LOOP OUT                  | 0x90   | 0x3E   | [Channel1] loop_out
+RELOOP / EXIT             | 0x90   | 0x3D   | [Channel1] reloop_toggle
+LOOP 1/2X                 | 0x90   | 0x3F   | [Channel1] loop_halve
+CUE                       | 0x90   | 0x39   | [Channel1] cue_default
+PLAY                      | 0x90   | 0x38   | [Channel1] play
+SYNC                      | 0x90   | 0x54   | [Channel1] beatsync
+Jog Touch                 | 0x90   | 0x41   | GeminiSlate.wheelTouch (Script)
+Jog Turn                  | 0xB0   | 0x04   | GeminiSlate.wheelTurn  (Script)
+Pitch / Rate Fader        | 0xB0   | 0x07   | GeminiSlate.rate       (Script, bipolar)
+Pregain                   | 0xB0   | 0x08   | [Channel1] pregain
+
+Globale Bedienelemente (Status immer 0x93 / 0xB3):
+
+Funktion                  | Status | midino | Mixxx Group / Key
+PAD MODE (zentral)        | 0x93   | 0x0D   | GeminiSlate.padModeButton (Script)
+BACK (Browse)             | 0x93   | 0x07   | [Library] MoveFocusBackward
+LOAD 1                    | 0x93   | 0x03   | [Channel1] LoadSelectedTrack
+LOAD 3                    | 0x93   | 0x01   | [Channel3] LoadSelectedTrack
+Crossfader                | 0xB3   | 0x1B   | GeminiSlate.crossfader (Script, bipolar)
+Browse Encoder            | 0xB3   | 0x1E   | [Library] MoveVertical (SelectKnob)
+
+Mixer (alles auf 0xB3, direkt gebunden, Range 0..1):
+
+Deck | Volume | Filter | EQ Hi | EQ Mid | EQ Low
+1    | 0x07   | 0x0B   | 0x0F  | 0x13   | 0x17
+2    | 0x08   | 0x0C   | 0x10  | 0x14   | 0x18
+3    | 0x09   | 0x0E   | 0x11  | 0x15   | 0x19
+4    | 0x0A   | 0x12   | 0x16  | 0x1A   | 0x1C
+
+Hinweise:
+- Buttons werden in Mixxx 2.4 ohne <options>-Block korrekt als Tasten interpretiert.
+- Dort wo bipolar (Pitch, Crossfader) oder Scratch noetig ist, wird Script genutzt.
+- Bei abweichenden Notennummern (PLAY/CUE/SYNC oder FX) einfach in der XML
+  die <midino>-Werte tauschen - das Skript bleibt unveraendert.
